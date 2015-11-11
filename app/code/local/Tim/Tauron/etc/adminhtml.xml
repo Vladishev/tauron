@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Tim
+ *
+ * @category   Tim
+ * @package    Tim_Tauron
+ * @copyright  Copyright (c) 2015 Tim (http://tim.pl)
+ * @author     Vladislav Verbitskiy <vladomsu@gmail.com>
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <tim_salt>
+                                        <title>Salt</title>
+                                    </tim_salt>
+                                    <tim_sql_viev>
+                                        <title>SQL View</title>
+                                    </tim_sql_viev>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

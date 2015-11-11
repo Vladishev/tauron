@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Tim
+ *
+ * @category   Tim
+ * @package    Tim_Tauron
+ * @copyright  Copyright (c) 2015 Tim (http://tim.pl)
+ * @author     Vladislav Verbitskiy <vladomsu@gmail.com>
+ */
+-->
+<config>
+    <modules>
+        <Tim_Tauron>
+            <version>0.1.0</version>
+        </Tim_Tauron>
+    </modules>
+    <global>
+        <helpers>
+            <tim_tauron>
+                <class>Tim_Tauron_Helper</class>
+            </tim_tauron>
+        </helpers>
+    </global>
+</config>

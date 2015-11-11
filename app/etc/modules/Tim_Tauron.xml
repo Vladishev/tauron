@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Tim
+ *
+ * @category   Tim
+ * @package    Tim_Tauron
+ * @copyright  Copyright (c) 2015 Tim (http://tim.pl)
+ * @author     Vladislav Verbitskiy <vladomsu@gmail.com>
+ */
+-->
+<config>
+    <modules>
+        <Tim_Tauron>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Tim_Tauron>
+    </modules>
+</config>
