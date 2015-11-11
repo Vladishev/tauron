@@ -12,10 +12,30 @@
 <config>
     <modules>
         <Tim_Tauron>
-            <version>0.1.0</version>
+            <version>0.0.1</version>
         </Tim_Tauron>
     </modules>
     <global>
+        <resources>
+            <tim_tauron_setup>
+                <setup>
+                    <module>Tim_Tauron</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </tim_tauron_setup>
+            <tim_tauron_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </tim_tauron_write>
+            <tim_tauron_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </tim_tauron_read>
+        </resources>
         <helpers>
             <tim_tauron>
                 <class>Tim_Tauron_Helper</class>
