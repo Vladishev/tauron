@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+       <Uluruz_Przelewy24>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                 <Mage_Payment />
+             </depends>
+       </Uluruz_Przelewy24>
+    </modules>
+</config>

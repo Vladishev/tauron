@@ -1,0 +1,35 @@
+<table>
+    <tr>
+        <td>
+            <button type="button" id="<?php echo $this->getHtmlId() ?>">
+                <span><?php echo $this->escapeHtml($this->getButtonLabel()); ?></span>
+            </button>
+            <p class="note">
+                <span>
+                    Wysyła powiadomienie o aktualnym adresie zwrotnym dla transakcji niezweryfikowanych do serwisu Przelewy24 (tylko w trybie produkcyjnym)
+                </span>
+            </p>
+            <p class="note" id="przelewy24notice" style="color:orangered;">
+            </p>
+            <input id="<?php echo $this->getHtmlId() ?>_value" name="groups[przelewy24][fields][send_request_to_service][value]" value="<?php echo $this->getValue() ?>" class=" input-text" type="hidden">
+        </td>
+    </tr>
+</table>
+
+<script type="text/javascript">
+//<![CDATA[
+var przelewy24value =  $('<?php echo $this->getHtmlId() ?>_value').value.replace(/\'/g,'"');
+if(przelewy24value !== ''){ 
+    przelewy24value = przelewy24value.evalJSON(true);
+    $('przelewy24notice').update('<span>Ostatnie zgłoszenie o adresie zwrotnym zostało wysłane dnia ' + przelewy24value.date + ' dla numeru sprzedawcy ' + przelewy24value.shopno + '.</span>');
+} 
+$('<?php echo $this->getHtmlId() ?>').observe('click', function (event) {
+    this.update('<span>Powiadomienie zostanie wysłane po zapisaniu zmaian</span>');
+    this.style = "background: red;";
+    var przelewy24value = {};
+    przelewy24value['save'] = true;
+    $('<?php echo $this->getHtmlId() ?>_value').value = JSON.stringify(przelewy24value);
+});
+
+//]]>
+</script>

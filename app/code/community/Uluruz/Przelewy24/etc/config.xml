@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Uluruz_Przelewy24>
+            <version>0.1.2</version>
+        </Uluruz_Przelewy24>
+    </modules>
+    <global>
+        <blocks>
+            <przelewy24>
+                <class>Uluruz_Przelewy24_Block</class>
+            </przelewy24>
+        </blocks>
+        <models>
+            <przelewy24>
+                <class>Uluruz_Przelewy24_Model</class>
+            </przelewy24>
+        </models>
+        <helpers>
+            <przelewy24>
+                <class>Uluruz_Przelewy24_Helper</class>
+            </przelewy24>
+        </helpers>
+        <template>
+            <email>
+                <przelewy24_init_service translate="label" module="przelewy24">
+                    <label>Prośba o przypisanie adresu zwrotnego</label>
+                    <file>przelewy24_init_service.html</file>
+                    <type>html</type>
+                </przelewy24_init_service>
+            </email>
+        </template>
+    </global>
+    <frontend>
+        <routers>
+            <przelewy24>
+                <use>standard</use>
+                <args>
+                    <module>Uluruz_Przelewy24</module>
+                    <frontName>przelewy24</frontName>
+                </args>
+            </przelewy24>
+        </routers>
+    </frontend>
+    <default>
+        <payment>
+            <przelewy24>
+                <active>0</active>
+                <model>przelewy24/payment_przelewy24</model>
+                <order_status>1</order_status>
+                <title>Przelewy24</title>
+                <text>Po złożeniu zamówienia zostaniesz przeniesiony na stronę serwisu Przelewy24 w celu dokonania płatności.</text>
+                <!--<service_email>serwis@przelewy24.pl</service_email>-->
+            </przelewy24>
+        </payment>
+    </default>
+</config>
