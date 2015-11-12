@@ -12,28 +12,28 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
 {
     /**
      * Uncomment and put your data for test.
-     * After this put http//:tauron.local/tim_tauron/cart/ to url field.
+     * After this put http://tauron.local/tim_tauron/cart/ to url field.
      */
-    public function indexAction()
-    {
-        $firstName = 'Vasya';
-        $lastName = 'Pupkin';
-        $ppe = 'ppe';
-        $email = 'test@gmail.com';
-        $phone = '3880080800';
-        $sku = 'Bundle Prodyct';
-        $nip = 'nip';
-        $address = 'address';
-        $customerId = 'customerId';
-        $employee = 'employee';
-        $salt = Mage::helper('tim_tauron')->getSalt();
-        $md5 = md5($firstName . $lastName . $ppe . $email . $phone . $sku . $nip . $address . $customerId . $employee . $salt);
-        $requestString = 'first_name=' . $firstName . '&last_name=' . $lastName . '&ppe=' . $ppe . '&email=' . $email . '&phone=' . $phone . '&sku=' . $sku . '&nip=' . $nip . '&address=' . $address . '&id_customer=' . $customerId . '&employee=' . $employee . '&md5=' . $md5;
-        $encodedString = base64_encode($requestString);
-        $url = Mage::getUrl("tim_tauron/cart/decode", array('request' => $encodedString));
-
-        $this->_redirectUrl($url);
-    }
+//    public function indexAction()
+//    {
+//        $firstName = 'Vasya';
+//        $lastName = 'Pupkin';
+//        $ppe = 'ppe';
+//        $email = 'test@gmail.com';
+//        $phone = '3880080800';
+//        $sku = 'Bundle Prodyct';
+//        $nip = 'nip';
+//        $address = 'address';
+//        $customerId = 'customerId';
+//        $employee = 'employee';
+//        $salt = Mage::helper('tim_tauron')->getSalt();
+//        $md5 = md5($firstName . $lastName . $ppe . $email . $phone . $sku . $nip . $address . $customerId . $employee . $salt);
+//        $requestString = 'first_name=' . $firstName . '&last_name=' . $lastName . '&ppe=' . $ppe . '&email=' . $email . '&phone=' . $phone . '&sku=' . $sku . '&nip=' . $nip . '&address=' . $address . '&id_customer=' . $customerId . '&employee=' . $employee . '&md5=' . $md5;
+//        $encodedString = base64_encode($requestString);
+//        $url = Mage::getUrl("tim_tauron/cart/decode", array('request' => $encodedString));
+//
+//        $this->_redirectUrl($url);
+//    }
 
     /**
      * Decode data from url string, check and send it to checkout/cart.
