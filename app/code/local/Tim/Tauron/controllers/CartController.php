@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Tim
  *
@@ -13,7 +14,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
      * Uncomment and put your data for test.
      * After this put http//:tauron.local/tim_tauron/cart/ to url field.
      */
-    /*public function indexAction()
+    public function indexAction()
     {
         $firstName = 'Vasya';
         $lastName = 'Pupkin';
@@ -26,13 +27,13 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
         $customerId = 'customerId';
         $employee = 'employee';
         $salt = Mage::helper('tim_tauron')->getSalt();
-        $md5 = md5($firstName.$lastName.$ppe.$email.$phone.$sku.$nip.$address.$customerId.$employee.$salt);
-        $requestString = 'first_name='.$firstName.'&last_name='.$lastName.'&ppe='.$ppe.'&email='.$email.'&phone='.$phone.'&sku='.$sku.'&nip='.$nip.'&address='.$address.'&id_customer='.$customerId.'&employee='.$employee.'&md5='.$md5;
+        $md5 = md5($firstName . $lastName . $ppe . $email . $phone . $sku . $nip . $address . $customerId . $employee . $salt);
+        $requestString = 'first_name=' . $firstName . '&last_name=' . $lastName . '&ppe=' . $ppe . '&email=' . $email . '&phone=' . $phone . '&sku=' . $sku . '&nip=' . $nip . '&address=' . $address . '&id_customer=' . $customerId . '&employee=' . $employee . '&md5=' . $md5;
         $encodedString = base64_encode($requestString);
-        $url=Mage::getUrl("tim_tauron/cart/decode", array('request'=>$encodedString));
+        $url = Mage::getUrl("tim_tauron/cart/decode", array('request' => $encodedString));
 
         $this->_redirectUrl($url);
-    }*/
+    }
 
     /**
      * Decode data from url string, check and send it to checkout/cart.
@@ -52,24 +53,24 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
             $data .= $value;
         }
         $salt = Mage::helper('tim_tauron')->getSalt();
-        $checkMd5 = md5($data.$salt);
+        $checkMd5 = md5($data . $salt);
         if ($requestData['md5'] == $checkMd5) {
-            $product_id = Mage::getModel("catalog/product")->getIdBySku($requestData['sku']);
+            $productId = Mage::getModel("catalog/product")->getIdBySku($requestData['sku']);
             $qty = '1';
-            $_product = Mage::getModel('catalog/product')->load($product_id);
+            if (!$productId) {
+                echo 'This product does not exist. Please, check sku!';
+            }
+            $_product = Mage::getModel('catalog/product')->load($productId);
 
             $cart = Mage::getModel('checkout/cart');
             $cart->init();
 
-            $params = array(
-                'product'=>$product_id,
-                'qty' => $qty,
-            );
+            $params = array('product' => $productId, 'qty' => $qty,);
 
             $request = new Varien_Object();
             $request->setData($params);
 
-            $cart->addProduct($_product, $request );
+            $cart->addProduct($_product, $request);
             $cart->save();
             Mage::getSingleton('checkout/session')->setCartWasUpdated(true);
             $this->_redirect('checkout/cart');
