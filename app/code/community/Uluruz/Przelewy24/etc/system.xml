@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <payment>
+            <groups>
+                <przelewy24 translate="label" module="przelewy24">
+                <label>Uluruz - Przelewy24</label>
+                <sort_order>500</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+                <fields>
+                    <active translate="label">
+                      <label>Włączony</label>
+                      <frontend_type>select</frontend_type>
+                      <source_model>adminhtml/system_config_source_yesno</source_model>
+                      <sort_order>10</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                    </active>
+                    <title translate="label">
+                      <label>Nazwa</label>
+                      <frontend_type>text</frontend_type>
+                      <sort_order>20</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                    </title>
+                    <text translate="label">
+                      <label>Opis</label>
+                      <frontend_type>textarea</frontend_type>
+                      <sort_order>30</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                    </text>
+                    <order_status translate="label">
+                      <label>Status nowego zamówienia</label>
+                      <frontend_type>select</frontend_type>
+                      <source_model>adminhtml/system_config_source_order_status</source_model>
+                      <sort_order>40</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                    </order_status>
+					<order_total_switch translate="label">
+                        <label>Używaj zakresu wartości zamówienia</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>adminhtml/system_config_source_yesno</source_model>    
+                        <comment><![CDATA[<script type="text/javascript">
+                            window.onload=function(){
+                               var rowSwitch = document.getElementById("row_payment_przelewy24_order_total_switch");
+                               rowSwitch.style.background="#ffffff";
+                               document.getElementById("row_payment_przelewy24_min_order_total").style.background="#ffffff";
+                               document.getElementById("row_payment_przelewy24_max_order_total").style.background="#ffffff";
+                               document.getElementById("payment_przelewy24_order_total_switch").onchange = function(){
+                                    var paymentMin = document.getElementById("payment_przelewy24_min_order_total");
+                                    var paymentMax = document.getElementById("payment_przelewy24_max_order_total");
+                                    var payments = [paymentMin,paymentMax];
+                                    if(this.value == "0"){
+                                        for(var i in payments){
+                                            if (Object.prototype.hasOwnProperty.call(payments, i)) {
+                                                var hiddenInput = document.createElement('input');
+                                                hiddenInput.setAttribute('type','hidden');
+                                                hiddenInput.setAttribute('id',payments[i].id + 'hidden');
+                                                hiddenInput.value="0";
+                                                hiddenInput.name = payments[i].name;
+                                                rowSwitch.appendChild(hiddenInput);
+                                            }
+                                        }
+                                    } else {
+                                        document.getElementById(paymentMin.id + 'hidden').remove();
+                                        document.getElementById(paymentMax.id + 'hidden').remove();
+                                    }
+                                }
+                        }</script>]]>
+                        </comment>
+                        <sort_order>45</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <tooltip><![CDATA[Wartość zamówienia spoza zakresu spowoduje brak wyświetlenia możliwości dokonania przelewu przez Przelewy24]]></tooltip>
+                    </order_total_switch>
+                    <min_order_total translate="label">
+                        <label>Minimalna wartość zamówienia</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>50</sort_order>
+                        <validate>validate-number required-entry</validate>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <depends>
+                            <order_total_switch>1</order_total_switch>
+                        </depends>
+                    </min_order_total>
+                    <max_order_total translate="label">
+                        <label>Maksymalna wartość zamówienia</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>60</sort_order>
+                        <validate>validate-number required-entry</validate>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <depends>
+                            <order_total_switch>1</order_total_switch>
+                        </depends>
+                        <tooltip><![CDATA[Wartość "0" powoduje ignorowanie wartości maksymalnego zamówienia]]></tooltip>
+                    </max_order_total>
+                    <mode translate="label">
+                        <label>Typ transakcji</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>przelewy24/system_config_source_mode</source_model>
+                        <sort_order>70</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <tooltip><![CDATA[Umożliwia wybranie serwera produkcyjnego lub testowego w serwisie Przelewy24]]></tooltip>
+                    </mode>
+                    <modetest translate="label">
+                        <label>Typ transakcji testowej</label>
+                        <frontend_type>select</frontend_type>
+                        <source_model>przelewy24/system_config_source_modetest</source_model>
+                        <sort_order>80</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <depends>
+                            <mode separator=",">0,1</mode>
+                        </depends>
+                    </modetest>
+                    <shopno translate="label">
+                        <label>Numer ID sklepu (sprzedawcy):</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>90</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <depends>
+                            <mode separator=",">1,2</mode>
+                        </depends>
+                    </shopno>
+                    <crc translate="label">
+                        <label>Klucz do CRC:</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>100</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <depends>
+                            <mode>2</mode>
+                        </depends>
+                        <tooltip><![CDATA[Klucz CRC można wygenerować z panelu administracyjnym w serwisie Przelewy24. Klucz CRC jest indywidualny dla serwera testowego jak i produkcyjnego.]]></tooltip>
+                    </crc>
+                    <crctest translate="label">
+                        <label>Klucz do CRC (server testowy):</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>110</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <depends>
+                            <mode>1</mode>
+                        </depends>
+                        <tooltip><![CDATA[Klucz CRC można wygenerować z panelu administracyjnym w serwisie Przelewy24. Klucz CRC jest indywidualny dla serwera testowego jak i produkcyjnego.]]></tooltip>
+                    </crctest>
+                    <send_request_to_service>
+                        <frontend_model>przelewy24/adminhtml_system_config_form_field_sentdata</frontend_model>
+                        <backend_model>przelewy24/system_config_backend_serialized_sentdata</backend_model>
+                        <button_url><![CDATA[#]]></button_url>
+                        <sort_order>120</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <depends>
+                            <mode>2</mode>
+                        </depends>
+                    </send_request_to_service>
+                </fields>
+              </przelewy24>
+            </groups>
+        </payment>
+    </sections>
+</config>
