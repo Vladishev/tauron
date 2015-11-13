@@ -39,12 +39,12 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function checkForExistingUser($email)
     {
-        $customerExist = Mage::getModel('customer/customer')
+        $customer = Mage::getModel('customer/customer')
             ->getCollection()
-            ->addAttributeToSelect('*')
+            ->addAttributeToSelect('email')
             ->addAttributeToFilter('email', $email)
             ->getFirstItem();
-        if($customerExist['email'] != null) {
+        if(!is_null($customer['email'])) {
             return true;
         } else {
             return false;
