@@ -42,4 +42,15 @@
             </tim_tauron>
         </helpers>
     </global>
+    <frontend>
+        <routers>
+            <tim_tauron>
+                <use>standard</use>
+                <args>
+                    <module>Tim_Tauron</module>
+                    <frontName>tim_tauron</frontName>
+                </args>
+            </tim_tauron>
+        </routers>
+    </frontend>
 </config>
