@@ -31,4 +31,23 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
         $data['db_name'] = Mage::getStoreConfig('tim_sql_viev/tim_sql_viev_group/db_name');
         return $data;
     }
+
+    /**
+     * Checks is customer exist
+     * @param (str)$email
+     * @return bool
+     */
+    public function checkForExistingUser($email)
+    {
+        $customerExist = Mage::getModel('customer/customer')
+            ->getCollection()
+            ->addAttributeToSelect('*')
+            ->addAttributeToFilter('email', $email)
+            ->getFirstItem();
+        if($customerExist['email'] != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
