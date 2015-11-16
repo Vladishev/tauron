@@ -30,7 +30,8 @@
 <?php
 if ($this->getRequest()->getParam('popup')): ?>
     <script type="text/javascript">
-            alert('It works!!!');
+        var myWindow = window.open("", "Popup", "width=400, height=400");
+        myWindow.document.write("<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('tauron_popup')->toHtml(); ?>");
     </script>
 <?php endif; ?>
 <div class="header-language-background">
