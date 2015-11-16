@@ -12,7 +12,7 @@
 <config>
     <modules>
         <Tim_Tauron>
-            <version>0.0.1</version>
+            <version>0.0.2</version>
         </Tim_Tauron>
     </modules>
     <global>
@@ -41,6 +41,21 @@
                 <class>Tim_Tauron_Helper</class>
             </tim_tauron>
         </helpers>
+        <models>
+            <tim_tauron>
+                <class>Tim_Tauron_Model</class>
+            </tim_tauron>
+        </models>
+        <events>
+            <controller_action_predispatch_checkout_cart_add>
+                <observers>
+                    <tim_tauron_close_access>
+                        <class>tim_tauron/observer</class>
+                        <method>closeAccess</method>
+                    </tim_tauron_close_access>
+                </observers>
+            </controller_action_predispatch_checkout_cart_add>
+        </events>
     </global>
     <frontend>
         <routers>
