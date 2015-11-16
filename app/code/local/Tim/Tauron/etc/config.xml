@@ -41,6 +41,32 @@
                 <class>Tim_Tauron_Helper</class>
             </tim_tauron>
         </helpers>
+        <models>
+            <sales>
+                <rewrite>
+                    <order>Tim_Tauron_Model_Order</order>
+                </rewrite>
+            </sales>
+        </models>
+        <template>
+            <email>
+                <sales_email_order_przelewy24_template translate="label" module="sales">
+                    <label>New Order</label>
+                    <file>sales/order_new_przelewy24.html</file>
+                    <type>html</type>
+                </sales_email_order_przelewy24_template>
+                <sales_email_order_banktransfer_template translate="label" module="sales">
+                    <label>New Order</label>
+                    <file>sales/order_new_bank_transfer.html</file>
+                    <type>html</type>
+                </sales_email_order_banktransfer_template>
+                <sales_email_order_ccsave_template translate="label" module="sales">
+                    <label>New Order</label>
+                    <file>sales/order_new_cc.html</file>
+                    <type>html</type>
+                </sales_email_order_ccsave_template>
+            </email>
+        </template>
     </global>
     <frontend>
         <routers>
