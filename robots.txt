@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /
+
+## IMAGE CRAWLERS SETTINGS
+## Extra: Uncomment if you do not wish Google and Bing to index your images
+User-agent: Googlebot-Image
+Disallow: /
+User-agent: msnbot-media
+Disallow: /
