@@ -13,7 +13,7 @@ $installer = $this;
 $installer->startSetup();
 Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
 
-$staticBlocks = array(
+$staticBlock = array(
     array(
         'title' => 'Popup',
         'identifier' => 'tauron_popup',
@@ -23,8 +23,6 @@ $staticBlocks = array(
     )
 );
 
-foreach ($staticBlocks as $data) {
-    Mage::getModel('cms/block')->setData($data)->save();
-}
+    Mage::getModel('cms/block')->setData($staticBlock)->save();
 
 $installer->endSetup();
