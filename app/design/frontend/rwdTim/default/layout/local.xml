@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="setRobots"><value>NOINDEX,NOFOLLOW</value></action>
+        </reference>
+    </default>
     <checkout_cart_index translate="label">
         <reference name="content">
             <remove name="checkout.cart.coupon"/>
