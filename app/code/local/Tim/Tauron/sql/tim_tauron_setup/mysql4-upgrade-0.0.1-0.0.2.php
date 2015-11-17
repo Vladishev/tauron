@@ -23,6 +23,6 @@ $staticBlock = array(
     )
 );
 
-    Mage::getModel('cms/block')->setData($staticBlock)->save();
+Mage::getModel('cms/block')->setData($staticBlock)->save();
 
 $installer->endSetup();
