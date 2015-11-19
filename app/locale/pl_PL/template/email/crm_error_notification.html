@@ -1,0 +1,46 @@
+<!--@subject Błąd CRM! @-->
+
+<style type="text/css">
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+</style>
+
+<div style="font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;">
+    <table cellspacing="0" cellpadding="0" border="0" width="98%" style="margin-top:10px; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; margin-bottom:10px;">
+        <tr>
+            <td align="center" valign="top">
+                <!-- [ header starts here] -->
+                <table cellspacing="0" cellpadding="0" border="0" width="650">
+                    <tr>
+                        <td valign="top">
+                            <a href="{{store url=""}}"><img src="{{skin url="images/logo_email.gif" _area='frontend'}}" alt="Magento"  style="margin-bottom:10px;" border="0"/></a></td>
+                    </tr>
+                </table>
+
+                <!-- [ middle starts here] -->
+                <table cellspacing="0" cellpadding="0" border="0" width="650">
+                    <tr>
+                        <td valign="top">
+                            <p><strong>Witaj,</strong>,<br/>
+                            Zamówienie nie zostało zrelizowane z powodu błędu o następującej treści:
+                            </p>
+                            <p> <pre>{{var message}}</pre> </p>
+
+                            <p style="border:1px solid #BEBCB7; padding:13px 18px; background:#F8F7F5; ">
+                                
+                            </p>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Dziękujemy,<br/><strong>{{var order.getStoreGroupName()}}</strong></p>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+</div>
+
+

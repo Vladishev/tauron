@@ -1,0 +1,22 @@
+<div>
+	<h1>Dear {{var username}}</h1>
+	<p>Your bank account number is #{{var order_id}} status is {{var status}} </p>
+        {{depend tracking_link}}
+              <p>Your tracking link is {{var tracking_link}}</p>
+        {{/depend}}
+	<div>{{var storename}} ({{var store_url}})</div>
+</div>
+
+<!--
+Witaj {{imię nazwisko}},
+
+Zamówienie nr {{nr zamówienia}} zostało przyjęte.
+
+Prosimy o dokonanie wpłaty na konto {{nr konta}}.
+
+Tytuł wpłaty: Zamówienie nr {{nr zamówienia}}
+Kwota do zapłaty: {{wartość zamówienia brutto}}
+
+Dziękujemy,
+Bank Kabli
+-->
