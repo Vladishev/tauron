@@ -153,5 +153,8 @@
     $('shipping-address-select') && shipping.newAddress(!$('shipping-address-select').value);
 
     var shippingRegionUpdater = new RegionUpdater('shipping:country_id', 'shipping:region', 'shipping:region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'shipping:postcode');
+
+    jQuery("#shipping\\:postcode").mask('99-999');
+    jQuery("#shipping\\:telephone").mask('+48999 99-99-99');
 //]]>
 </script>

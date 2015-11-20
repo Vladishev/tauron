@@ -3,6 +3,7 @@
     <default>
         <reference name="head">
             <action method="setRobots"><value>NOINDEX,NOFOLLOW</value></action>
+            <action method="addJs"><script>lib/jquery/jquery.maskedinput.min.js</script></action>
         </reference>
     </default>
     <checkout_cart_index translate="label">
