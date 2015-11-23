@@ -448,35 +448,35 @@ class Tim_Crm_Model_Data_Order extends Tim_Crm_Model_Data_Abstract
         $items = array();
         $itemKey = 0;
         foreach($this->getOrder()->getAllItems() as $_item){
-            if(Mage::helper('checkout/calculator')->isBarrelProduct($_item->getProduct())){
-                $itemKey++;
-                $options = $_item->getProductOptions();
-                $options = $options['info_buyRequest'];
-                if($options['custom']['segments']){
-                    foreach($options['custom']['segments'] as $itemQty){
-                        $itemKey++;
-                        $items[] = $this->getSalesOrderBarrelProductItem('custom',$_item,$itemKey,$itemQty,$options['custom']);
-                    }
-                    $key = 0;
-                    foreach(Mage::helper('crm')->getProductBarrelGroup($options['custom']) as $barrel){
-                        $items[] = $this->getSalesOrderItemBarrel($_item,$barrel,$key++);
-                    }
-                    if(isset($options['custom']['cuts']) && $options['custom']['cuts']['qty']){
-                        $items[] = $this->getSalesOrderItemCut($_item,$options['custom']['cuts']);
-                    } 
-                }
-                if($options['clearancesales']['segments']){
-                    foreach($options['clearancesales']['segments'] as $itemQty){
-                        $itemKey++;
-                        $items[] = $this->getSalesOrderBarrelProductItem('clearancesales',$_item,$itemKey,$itemQty,$options['clearancesales']);
-                    }
-                    foreach(Mage::helper('crm')->getProductBarrelGroup($options['clearancesales']) as $barrel){
-                        $items[] = $this->getSalesOrderItemBarrel($_item,$barrel);
-                    }
-                }
-            } else {
+//            if(Mage::helper('checkout/calculator')->isBarrelProduct($_item->getProduct())){
+//                $itemKey++;
+//                $options = $_item->getProductOptions();
+//                $options = $options['info_buyRequest'];
+//                if($options['custom']['segments']){
+//                    foreach($options['custom']['segments'] as $itemQty){
+//                        $itemKey++;
+//                        $items[] = $this->getSalesOrderBarrelProductItem('custom',$_item,$itemKey,$itemQty,$options['custom']);
+//                    }
+//                    $key = 0;
+//                    foreach(Mage::helper('crm')->getProductBarrelGroup($options['custom']) as $barrel){
+//                        $items[] = $this->getSalesOrderItemBarrel($_item,$barrel,$key++);
+//                    }
+//                    if(isset($options['custom']['cuts']) && $options['custom']['cuts']['qty']){
+//                        $items[] = $this->getSalesOrderItemCut($_item,$options['custom']['cuts']);
+//                    }
+//                }
+//                if($options['clearancesales']['segments']){
+//                    foreach($options['clearancesales']['segments'] as $itemQty){
+//                        $itemKey++;
+//                        $items[] = $this->getSalesOrderBarrelProductItem('clearancesales',$_item,$itemKey,$itemQty,$options['clearancesales']);
+//                    }
+//                    foreach(Mage::helper('crm')->getProductBarrelGroup($options['clearancesales']) as $barrel){
+//                        $items[] = $this->getSalesOrderItemBarrel($_item,$barrel);
+//                    }
+//                }
+//            } else {
                 $items[] = $this->getSalesOrderSimpleProductItem($_item);
-            }
+//            }
         }
         $items[] = $this->getSalesOrderTransport();
 //        print_r($items); die;
