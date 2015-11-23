@@ -31,4 +31,15 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
         $data['db_name'] = Mage::getStoreConfig('tim_sql_viev/tim_sql_viev_group/db_name');
         return $data;
     }
+
+    /**
+     * Returns emails array from Configuration->Complaint
+     * @return array
+     */
+    public function getComplaintEmails()
+    {
+        $emails = explode(',', rtrim(Mage::getStoreConfig('tim_complaint/tim_complaint_group/complaint'), ',;'));
+        $emails = array_map('trim', $emails);
+        return $emails;
+    }
 }

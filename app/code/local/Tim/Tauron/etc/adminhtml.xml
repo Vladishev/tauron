@@ -24,6 +24,9 @@
                                     <tim_sql_viev>
                                         <title>SQL View</title>
                                     </tim_sql_viev>
+                                    <tim_complaint>
+                                        <title>Complaint</title>
+                                    </tim_complaint>
                                 </children>
                             </config>
                         </children>
