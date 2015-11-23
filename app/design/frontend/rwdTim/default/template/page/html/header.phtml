@@ -27,7 +27,12 @@
  * @var Mage_Page_Block_Html_Header $this
  */
 ?>
-
+<?php if ($this->getRequest()->getParam('popup')): ?>
+    <script type="text/javascript">
+        var myWindow = window.open("", "Popup", "width=400, height=400");
+        myWindow.document.write("<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('tauron_popup')->toHtml(); ?>");
+    </script>
+<?php endif; ?>
 <div class="header-language-background">
     <div class="header-language-container">
         <div class="store-language-container">

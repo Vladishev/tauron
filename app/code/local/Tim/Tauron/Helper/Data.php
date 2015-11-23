@@ -50,4 +50,18 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
             return false;
         }
     }
+
+    /**
+     * Check can guest add products to cart
+     * @return bool
+     */
+    public function checkGuest()
+    {
+        $closeAccess = Mage::getSingleton('core/session')->getCloseAccess();
+        if ($closeAccess == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
