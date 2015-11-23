@@ -41,7 +41,7 @@ class Mage_Archive_Helper_File_Gz extends Mage_Archive_Helper_File
      */
     public function __construct($filePath)
     {
-        if (!function_exists('gzopen')) {
+        if (!function_exists('gzopen64')) {
             throw new Mage_Exception('PHP Extensions "zlib" must be loaded.');
         }
 
@@ -53,7 +53,7 @@ class Mage_Archive_Helper_File_Gz extends Mage_Archive_Helper_File
      */
     protected function _open($mode)
     {
-        $this->_fileHandler = @gzopen($this->_filePath, $mode);
+        $this->_fileHandler = @gzopen64($this->_filePath, $mode);
 
         if (false === $this->_fileHandler) {
             throw new Mage_Exception('Failed to open file ' . $this->_filePath);
