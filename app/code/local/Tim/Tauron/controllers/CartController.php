@@ -79,6 +79,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
             $cart->addProduct($_product, $request);
             $cart->save();
             Mage::getSingleton('checkout/session')->setCartWasUpdated(true);
+            Mage::getSingleton('checkout/session')->setData('tauron_cart', $requestData);
             $this->_redirect('checkout/cart');
         } else {
             Mage::getSingleton('core/session')->setData('close_access', true);
