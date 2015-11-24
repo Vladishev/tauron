@@ -204,7 +204,7 @@ class Tim_Crm_Model_Data_Order extends Tim_Crm_Model_Data_Abstract
         return array (
                 'ItemID' => 
                     array (
-                      'ID' => $_item->getProduct()->getDivCrmId(),
+                      'ID' => $_item->getProduct()->getTimCrmId(),
                     ),
                 'Description' => 
                     array (
