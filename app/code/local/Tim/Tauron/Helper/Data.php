@@ -33,6 +33,17 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * Returns emails array from Configuration->Complaint
+     * @return array
+     */
+    public function getComplaintEmails()
+    {
+        $emails = explode(',', rtrim(Mage::getStoreConfig('tim_complaint/tim_complaint_group/complaint'), ',;'));
+        $emails = array_map('trim', $emails);
+        return $emails;
+    }
+
+    /**
      * Checks is customer exist
      * @param (str)$email
      * @return bool

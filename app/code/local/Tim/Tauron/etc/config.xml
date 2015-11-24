@@ -76,6 +76,11 @@
                     <file>sales/order_new_cc.html</file>
                     <type>html</type>
                 </sales_email_order_ccsave_template>
+                <complaint_template translate="label" module="tim_tauron">
+                    <label>Complaint email</label>
+                    <file>complaint.html</file>
+                    <type>html</type>
+                </complaint_template>
             </email>
         </template>
         <events>
