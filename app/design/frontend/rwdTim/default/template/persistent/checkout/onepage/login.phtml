@@ -32,6 +32,9 @@
  */
 /** @var $this Mage_Checkout_Block_Onepage_Login */
 ?>
+<?php
+$sessionData = Mage::getSingleton('checkout/session')->getData('tauron_cart');
+?>
 <?php echo $this->getChildHtml('login_before') ?>
 <div class="col2-set<?php if (!$this->helper('customer')->isRegistrationAllowed() && !$this->getQuote()->isAllowedGuestCheckout()) echo ' login-only' ?>">
     <div class="col-1">
@@ -56,7 +59,7 @@
         <?php endif ?>
         <?php if( $this->getQuote()->isAllowedGuestCheckout() ): ?>
             <ul class="form-list">
-                <?php if( $this->getQuote()->isAllowedGuestCheckout() ): ?>
+                <?php if( $this->getQuote()->isAllowedGuestCheckout() and empty($sessionData)): ?>
                 <li class="control">
                     <input type="radio" name="checkout_method" id="login:guest" value="guest"<?php if($this->getQuote()->getCheckoutMethod()!=Mage_Checkout_Model_Type_Onepage::METHOD_REGISTER): ?> checked="checked"<?php endif; ?> class="radio" /><label for="login:guest"><?php echo $this->__('Checkout as Guest') ?></label>
                 </li>
@@ -96,7 +99,7 @@
                 <li>
                     <label for="login-email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
                     <div class="input-box">
-                        <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" class="input-text required-entry validate-email" id="login-email" name="login[username]" value="<?php echo $this->escapeHtml($this->getUsername()) ?>" />
+                        <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" class="input-text required-entry validate-email" id="login-email" name="login[username]" value="<?php echo ((Mage::helper('tim_tauron')->checkForExistingUser($sessionData['email'])) ? $sessionData['email'] : $this->escapeHtml($this->getUsername())) ?>" />
                     </div>
                 </li>
                 <li>
