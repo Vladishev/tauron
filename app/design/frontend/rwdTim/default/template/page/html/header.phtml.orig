@@ -27,13 +27,19 @@
  * @var Mage_Page_Block_Html_Header $this
  */
 ?>
+<<<<<<< HEAD
+<div class="header-before">
+
+   <div class="header-language-background">
+=======
 <?php if ($this->getRequest()->getParam('popup')): ?>
     <script type="text/javascript">
         var myWindow = window.open("", "Popup", "width=400, height=400");
         myWindow.document.write("<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('tauron_popup')->toHtml(); ?>");
     </script>
 <?php endif; ?>
-   <div class="header-language-background">
+<div class="header-language-background">
+>>>>>>> 78dff3a11db587978468dd36b0eb004eaca8d10d
     <div class="header-language-container">
         <div class="store-language-container">
             <?php echo $this->getChildHtml('store_language') ?>
@@ -50,7 +56,7 @@
 <header id="header" class="page-header">
     <div class="page-header-container">
 
-
+        <div class="tim-before-background tlo1">
 <div class="tim-header-carttop tim-short">
 
 
@@ -59,19 +65,16 @@
                     <?php echo $this->getChildHtml('minicart_head'); ?>
                 </div>
 </div>   
-
+            </div>
+          <div class="tim-before-background tlo2">   
 <div class="tim-short">              
         <a class="logo" href="<?php echo $this->getUrl('') ?>">
-            <img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="large" />        
+            <img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="large" />
             <img src="<?php echo $this->getLogoSrcSmall() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="small" />
         </a>
-        
-        <a class="logo logosecond" href="<?php echo $this->__('http://www.philips.pl') ?>" target="_blank">
-            <img src="<?php echo $this->getSkinUrl('images/logophilipsbig.png') ?>" alt="<?php echo $this->getLogoAlt() ?>" class="large" />        
-            <img src="<?php echo $this->getSkinUrl('images/logophilipssmall.png') ?>" alt="<?php echo $this->getLogoAlt() ?>" class="small" />
-        </a>        
 
-       
+        <?php // In order for the language switcher to display next to logo on smaller viewports, it will be moved here.
+              // See app.js for details ?>
 
         <!-- Skip Links -->
 
@@ -89,9 +92,16 @@
         </div>
         </div>
         </div>
-  
+        </div>
 
-
+        <!-- Account -->
+          <div class="tim-before-background tlo3">  
+        <div class="tim-short">  
+        <div class="tim-breadcrumbs">
+        <?php  echo $this->getLayout()->getBlock("breadcrumbs")->toHtml()?>
+        </div>
+        </div>
+    </div>
     </div>
 </header>
 </div>
