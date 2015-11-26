@@ -1,0 +1,163 @@
+.lp-container {
+    position: relative;
+    width:98%;
+    margin:auto;
+}
+
+.lp-lead1 {
+    position: absolute;
+    background-color:#e2007a;
+    color:#fff;
+    font-size:52px;
+    padding:5px 20px 5px 20px;
+    text-align: center;
+    right:0;
+    top:0;
+}
+
+.lp-lead2 {
+    background-color:#e2007a;
+    color:#fff;
+    font-size:40px;
+       padding:5px 20px 10px 20px;
+        text-align: center;
+    margin-top:10px;
+    position: absolute;
+    right:0px;
+    top:72px;
+}
+
+.lp-lead3 {
+    color:#0b5ed8;
+    font-size:45px;
+    position: absolute;
+    right:0px;
+    top:170px;
+}
+
+
+.lp-lead4 {
+    color:#0b5ed8;
+    font-size:27px;
+    position: absolute;
+    right:0px;
+    top:225px;
+}
+
+.lp-lead5-1 {
+    color:#0b5ed8;
+    font-size:45px;
+    position: absolute;
+    right:0px;
+    top:280px;
+}
+
+
+.lp-lead5-2 {
+    color:#0b5ed8;
+    font-size:27px;
+    position: absolute;
+    right:0px;
+    top:335px;
+}
+
+.lp-lead5-2  span {
+ font-size:16px;   
+    position: relative;
+    top:-9px;
+}
+.lp-lead-calltoaction {
+    min-height:72px;
+    background: #0b5ed8 url(images/right-arrow.png) no-repeat;
+    background-position: right center;
+    background-size: auto;
+    padding-right: 90px;
+    position: absolute;
+    right:0;
+    top:400px;
+    font-size:30px;
+    color:#fff;
+    line-height: 220%;
+    cursor:pointer;
+    text-align: right;
+    width:60%;
+    
+}
+
+.lp-lead-calltoaction:hover {
+ background-color: #e2007a;   
+}
+
+.lp-lead6 {
+     color:#727070;
+    font-size:10px;
+    max-width:550px;
+    width:60%;
+    text-align: justify;
+        position: absolute;
+    right:0px;
+    top:500px;
+
+}
+
+.lp-photo1 {
+    position: absolute;
+}
+
+
+
+.lp-photo2 {
+    position: absolute;
+    top:0px;
+    left:24%;
+    z-index: 0;
+}
+
+
+
+@media (max-width: 860px) {
+  .lp-lead-calltoaction  {
+      width:100%;
+      text-align: center;
+      padding:0;'
+  }
+    .lp-photo2, .lp-photo1 {
+        z-index: -1;
+        position: sticky;
+    }
+    .lp-lead3, .lp-lead4, .lp-lead5-1, .lp-lead5-2 {
+        background-color: #fff;
+        padding-left:20px;
+        padding-bottom:10px;
+text-align: center;
+        width:100%;
+    }
+.lp-lead6 {
+    width:98%;
+    max-width:98%;
+    top:520px;
+    }
+.lp-lead1 {
+    width:100%;
+    padding-left:0;
+    padding-right:0;
+    }
+.lp-lead2 {
+    width:100%;
+    padding-left:0;
+    padding-right:0;
+    }
+
+.lp-photoc-cont {
+    position: absolute;
+    top:600px;
+    }
+    .lp-photo1 {
+        left:10%;
+    }
+    .lp-photo2 {
+        left:90%;
+    }
+    
+    
+}
