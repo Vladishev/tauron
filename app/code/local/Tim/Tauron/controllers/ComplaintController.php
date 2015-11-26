@@ -75,8 +75,12 @@ class Tim_Tauron_ComplaintController extends Mage_Core_Controller_Front_Action
         $emails = $_helper->getComplaintEmails();
         $subject = 'REKLAMCJA - ' . $postData['orderNumber'];
 
-        foreach ($emails as $email) {
-            $_helper->sendEmail($email, $postData, $subject, 'complaint_template');
+        if (!empty($emails[0])) {
+            foreach ($emails as $email) {
+                $_helper->sendEmail($email, $postData, $subject, 'complaint_template');
+            }
+        } else {
+            Mage::log('Please, put minimum one email address to Configuration->TIM SA->Complaint', null, 'tim_tauron.log');
         }
 
         $this->_redirectReferer();
