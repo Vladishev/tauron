@@ -75,4 +75,26 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
             return false;
         }
     }
+
+    /**
+     * Sending email
+     * @param (str)$toEmail
+     * @param (str)$template
+     * @param (arr)$templateVar
+     * @param (str)$subject
+     */
+    public function sendEmail($toEmail, $templateVar, $subject, $template)
+    {
+        $templateId = $template;
+        $emailTemplate = Mage::getModel('core/email_template')->loadDefault($templateId);
+        $processedTemplate = $emailTemplate->getProcessedTemplate($templateVar);
+        $mail = Mage::getModel('core/email')
+            ->setToEmail($toEmail)
+            ->setBody($processedTemplate)
+            ->setSubject($subject)
+            ->setFromName(Mage::getStoreConfig('trans_email/ident_general/name'))
+            ->setType('html');
+
+            $mail->send();
+    }
 }

@@ -16,12 +16,6 @@
             <sort_order>100500</sort_order>
         </tim_tab>
     </tabs>
-    <tabs>
-        <complaint_tab translate="label" module="tim_tauron">
-            <label>Complaint</label>
-            <sort_order>100500</sort_order>
-        </complaint_tab>
-    </tabs>
     <sections>
         <tim_salt translate="label">
             <label>Salt</label>
@@ -52,7 +46,7 @@
         </tim_salt>
         <tim_complaint translate="label">
             <label>Complaint</label>
-            <tab>complaint_tab</tab>
+            <tab>tim_tab</tab>
             <sort_order>100</sort_order>
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>
