@@ -21,5 +21,13 @@ $installer->getConnection()
             'comment' => 'Broken products id'
         )
     );
+$staticBlock = array(
+        'title' => 'Complaint form',
+        'identifier' => 'tim_complaint',
+        'content' => '{{block type="core/template" name="tim_complaint" template="tim/complaint_form.phtml"}}',
+        'is_active' => 1,
+        'stores' => array(0),
+    );
+Mage::getModel('cms/block')->setData($staticBlock)->save();
 
 $installer->endSetup();

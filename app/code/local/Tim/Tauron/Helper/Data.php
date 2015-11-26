@@ -95,6 +95,6 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
             ->setFromName(Mage::getStoreConfig('trans_email/ident_general/name'))
             ->setType('html');
 
-            $mail->send();
+        $mail->send();
     }
 }
