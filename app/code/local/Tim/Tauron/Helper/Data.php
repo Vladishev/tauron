@@ -57,11 +57,11 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function checkGuest()
     {
-        $closeAccess = Mage::getSingleton('core/session')->getCloseAccess();
-        if ($closeAccess == 1) {
-            return true;
-        } else {
+        $openAccess = Mage::getSingleton('core/session')->getOpenAccess();
+        if ($openAccess == 1) {
             return false;
+        } else {
+            return true;
         }
     }
 }
