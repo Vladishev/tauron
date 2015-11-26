@@ -87,6 +87,14 @@
                     </tim_tauron_close_access>
                 </observers>
             </controller_action_predispatch_checkout_cart_add>
+            <catalog_controller_category_init_after>
+                <observers>
+                    <category_redirect_to_product>
+                        <class>tim_tauron/observer</class>
+                        <method>categoryRedirect</method>
+                    </category_redirect_to_product>
+                </observers>
+            </catalog_controller_category_init_after>
         </events>
     </global>
     <frontend>
