@@ -157,7 +157,7 @@ class Tim_Crm_Model_Data_Order extends Tim_Crm_Model_Data_Abstract
                     'Note' => 
                         array (
                             'type' => 'TRN',
-                            'status' => $this->getTransportStatusCode('trn'),
+                            'status' => '003',// $this->getTransportStatusCode('trn'),
                         ),
                     'ShipToParty' => 
                         array (
@@ -475,7 +475,9 @@ class Tim_Crm_Model_Data_Order extends Tim_Crm_Model_Data_Abstract
 //                    }
 //                }
 //            } else {
-                $items[] = $this->getSalesOrderSimpleProductItem($_item);
+            if($_item->getProductType() == "bundle") {}
+            else
+            {$items[] = $this->getSalesOrderSimpleProductItem($_item);}
 //            }
         }
         $items[] = $this->getSalesOrderTransport();
