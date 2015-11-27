@@ -45,6 +45,11 @@
                     <checkout_cart_item_renderer>Tim_Tauron_Block_Checkout_Cart_Item_Renderer</checkout_cart_item_renderer>
                 </rewrite>
             </bundle>
+            <checkout>
+                <rewrite>
+                    <onepage>Tim_Tauron_Block_Checkout_Onepage</onepage>
+                </rewrite>
+            </checkout>
         </blocks>
         <helpers>
             <tim_tauron>

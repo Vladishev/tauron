@@ -30,6 +30,7 @@
 <script type="text/javascript" src="<?php echo $this->getJsUrl('varien/accordion.js') ?>"></script>
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('js/opcheckout.js') ?>"></script>
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('js/opcheckout_rwd.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/removecheckout.js') ?>"></script>
 <ol class="opc opc-firststep-<?php echo $this->getActiveStep() ?>" id="checkoutSteps">
 <?php $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
 <?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; $i++ ?>
@@ -51,11 +52,12 @@
     <?php if($this->getActiveStep()): ?>
     accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');
     <?php endif ?>
-    var checkout = new Checkout(accordion,{
+    var checkout = new Excellence(accordion,{
         progress: '<?php echo $this->getUrl('checkout/onepage/progress') ?>',
         review: '<?php echo $this->getUrl('checkout/onepage/review') ?>',
         saveMethod: '<?php echo $this->getUrl('checkout/onepage/saveMethod') ?>',
         failure: '<?php echo $this->getUrl('checkout/cart') ?>'}
     );
+    checkout.setMethodRegister();
 //]]>
 </script>
