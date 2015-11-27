@@ -63,8 +63,8 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
             if (!$productId) {
                 echo 'This product does not exist. Please, check sku!';
             }
-            if (Mage::getSingleton('core/session')->getCloseAccess()) {
-                Mage::getSingleton('core/session')->unsetData('close_access');
+            if (Mage::getSingleton('core/session')->getOpenAccess()) {
+                Mage::getSingleton('core/session')->unsetData('open_access');
             }
             $_product = Mage::getModel('catalog/product')->load($productId);
 
@@ -80,9 +80,9 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
             $cart->save();
             Mage::getSingleton('checkout/session')->setCartWasUpdated(true);
             Mage::getSingleton('checkout/session')->setData('tauron_cart', $requestData);
+            Mage::getSingleton('core/session')->setData('open_access', true);
             $this->_redirect('checkout/cart');
         } else {
-            Mage::getSingleton('core/session')->setData('close_access', true);
             $this->_redirect('home?popup=1');
         }
     }
