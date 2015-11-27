@@ -700,7 +700,7 @@ $j(document).ready(function () {
     var skipLinks = $j('.skip-link');
 
     skipLinks.on('click', function (e) {
-        e.preventDefault();
+      
 
         var self = $j(this);
         // Use the data-target-element attribute, if it exists. Fall back to href.
@@ -732,7 +732,7 @@ $j(document).ready(function () {
         parent.removeClass('skip-active');
         link.removeClass('skip-active');
 
-        e.preventDefault();
+  
     });
 
 

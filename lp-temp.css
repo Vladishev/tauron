@@ -151,12 +151,17 @@ text-align: center;
 .lp-photoc-cont {
     position: absolute;
     top:600px;
+    margin-left:auto;
+    margin-right:auto;
+    width:65%;
+    left:0;
+    right:0;
     }
     .lp-photo1 {
-        left:10%;
+        left:0;
     }
     .lp-photo2 {
-        left:90%;
+        left:200px;
     }
     
     
