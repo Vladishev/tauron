@@ -1,0 +1,58 @@
+<?php $_helper = Mage::helper('tim_tauron'); ?>
+<form method="post" id="complaint_form" action="<?php echo $this->getUrl('tim_tauron/complaint/form');?>">
+    <label class="required" for="orderNumber"><em>*</em><?php echo $_helper->__('Enter order number: '); ?></label><br>
+    <input type="text" name="orderNumber" id="orderNumber" class="validate-not-negative-number required-entry" onblur="checkOrder()">
+    <br><br>
+    <div id="bundle-products">
+    </div>
+    <br>
+    <label for="additionalData"><?php echo $_helper->__('Additional data: '); ?></label><br>
+    <textarea col="30" row="4" name="additionalData"></textarea>
+    <br><br>
+    <label><?php echo $_helper->__('Data for shipping'); ?></label><br><br>
+    <label class="required" for="firstName"><em>*</em><?php echo $_helper->__('First name: '); ?></label><br>
+    <input type="text" name="firstName" class="required-entry">
+    <br>
+    <label class="required" for="lastName"><em>*</em><?php echo $_helper->__('Last name: '); ?></label><br>
+    <input type="text" name="lastName" class="required-entry">
+    <br>
+    <label class="required" for="street"><em>*</em><?php echo $_helper->__('Street: '); ?></label><br>
+    <input type="text" name="street" class="required-entry">
+    <br>
+    <label class="required" for="city"><em>*</em><?php echo $_helper->__('City: '); ?></label><br>
+    <input type="text" name="city" class="required-entry">
+    <br>
+    <label class="required" for="code"><em>*</em><?php echo $_helper->__('Code: '); ?></label><br>
+    <input type="text" name="code" class="required-entry validate-not-negative-number">
+    <br>
+    <label class="required" for="telephone"><em>*</em><?php echo $_helper->__('Telephone: '); ?></label><br>
+    <input type="text" name="telephone" class="required-entry validate-phoneStrict">
+    <br>
+    <label class="required" for="email"><em>*</em><?php echo $_helper->__('Email: '); ?></label><br>
+    <input type="text" name="email" class="required-entry validate-email">
+    <br><br>
+
+    <button type="submit" title="<?php echo $_helper->__('Send'); ?>" class="button"><span><span><?php echo $_helper->__('Send'); ?></span></span></button>
+</form>
+<script type="text/javascript">
+    //<![CDATA[
+    var dataForm = new VarienForm('complaint_form', true);
+    function checkOrder(){
+        var orderNumber = jQuery('#orderNumber').val();
+        var data = {orderNumber:orderNumber};
+        jQuery.ajax({
+            url: '<?php echo $this->getUrl('tim_tauron/complaint/checkOrder'); ?>',
+            data: data,
+            dataType: 'json',
+            success: function(result) {
+                var i;
+                var str = '<label><?php echo $_helper->__('Positions for complaint'); ?></label><br><br>';
+                for (i = 1; i < result.length; i++) {
+                    str += '<label for="product'+i+'">'+result[i]["name"]+'</label><br><input type="checkbox" name="product'+i+'" value="'+result[i]["id"]+'"><br>';
+                }
+                jQuery('#bundle-products').html(str);
+            }
+        });
+    }
+    //]]>
+</script>
