@@ -71,7 +71,9 @@
             </tim_tauron_read>
         </resources>
         <blocks>
-            <tim_tauron><class>Tim_Tauron_Block</class></tim_tauron>
+            <tim_tauron>
+                <class>Tim_Tauron_Block</class>
+            </tim_tauron>
             <bundle>
                 <rewrite>
                     <checkout_cart_item_renderer>Tim_Tauron_Block_Checkout_Cart_Item_Renderer</checkout_cart_item_renderer>
