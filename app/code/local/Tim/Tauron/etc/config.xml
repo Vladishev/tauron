@@ -12,7 +12,7 @@
 <config>
     <modules>
         <Tim_Tauron>
-            <version>0.0.2</version>
+            <version>0.0.3</version>
         </Tim_Tauron>
     </modules>
     <global>
@@ -37,7 +37,9 @@
             </tim_tauron_read>
         </resources>
         <blocks>
-            <tim_tauron><class>Tim_Tauron_Block</class></tim_tauron>
+            <tim_tauron>
+                <class>Tim_Tauron_Block</class>
+            </tim_tauron>
             <bundle>
                 <rewrite>
                     <checkout_cart_item_renderer>Tim_Tauron_Block_Checkout_Cart_Item_Renderer</checkout_cart_item_renderer>
@@ -87,6 +89,14 @@
                     </tim_tauron_close_access>
                 </observers>
             </controller_action_predispatch_checkout_cart_add>
+            <catalog_controller_category_init_after>
+                <observers>
+                    <category_redirect_to_product>
+                        <class>tim_tauron/observer</class>
+                        <method>categoryRedirect</method>
+                    </category_redirect_to_product>
+                </observers>
+            </catalog_controller_category_init_after>
         </events>
     </global>
     <frontend>

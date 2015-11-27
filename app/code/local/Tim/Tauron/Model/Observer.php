@@ -23,4 +23,22 @@ class Tim_Tauron_Model_Observer
             exit;
         }
     }
+
+    /**
+     * Redirect to product, when category have only one product
+     */
+    public function categoryRedirect(Varien_Event_Observer $observer)
+    {
+        $categoryId = $observer->getEvent()->getCategory()->getEntityId();
+        $products = Mage::getModel('catalog/category')->load($categoryId)
+            ->getProductCollection()
+            ->addAttributeToFilter('status', 1)// enabled
+            ->addAttributeToFilter('visibility', 4); //visibility in catalog,search
+        if (sizeof($products->getData()) == 1) {
+            $productInfo = array_shift($products->getData());
+            $productId = $productInfo['entity_id'];
+            $productUrl = Mage::getModel('catalog/product')->load($productId)->getProductUrl();
+            Mage::app()->getResponse()->setRedirect($productUrl);
+        }
+    }
 }
