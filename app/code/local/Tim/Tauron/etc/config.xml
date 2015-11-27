@@ -16,6 +16,40 @@
         </Tim_Tauron>
     </modules>
     <global>
+        <blocks>
+            <tim_tauron>
+                <class>Tim_Tauron_Block</class>
+            </tim_tauron>
+            <bundle>
+                <rewrite>
+                    <checkout_cart_item_renderer>Tim_Tauron_Block_Checkout_Cart_Item_Renderer</checkout_cart_item_renderer>
+                </rewrite>
+            </bundle>
+        </blocks>
+        <helpers>
+            <tim_tauron>
+                <class>Tim_Tauron_Helper</class>
+            </tim_tauron>
+        </helpers>
+        <models>
+            <tim_tauron>
+                <class>Tim_Tauron_Model</class>
+                <resourceModel>tim_tauron_resource</resourceModel>
+            </tim_tauron>
+            <tim_tauron_resource>
+                <class>Tim_Tauron_Model_Resource</class>
+                <entities>
+                    <complaint>
+                        <table>tim_complaint</table>
+                    </complaint>
+                </entities>
+            </tim_tauron_resource>
+            <sales>
+                <rewrite>
+                    <order>Tim_Tauron_Model_Order</order>
+                </rewrite>
+            </sales>
+        </models>
         <resources>
             <tim_tauron_setup>
                 <setup>
@@ -37,9 +71,7 @@
             </tim_tauron_read>
         </resources>
         <blocks>
-            <tim_tauron>
-                <class>Tim_Tauron_Block</class>
-            </tim_tauron>
+            <tim_tauron><class>Tim_Tauron_Block</class></tim_tauron>
             <bundle>
                 <rewrite>
                     <checkout_cart_item_renderer>Tim_Tauron_Block_Checkout_Cart_Item_Renderer</checkout_cart_item_renderer>
@@ -52,9 +84,6 @@
             </tim_tauron>
         </helpers>
         <models>
-            <tim_tauron>
-                <class>Tim_Tauron_Model</class>
-            </tim_tauron>
             <sales>
                 <rewrite>
                     <order>Tim_Tauron_Model_Order</order>
@@ -104,6 +133,17 @@
             </catalog_controller_category_init_after>
         </events>
     </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <tim_tauron before="Mage_Adminhtml">Tim_Tauron_Adminhtml</tim_tauron>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
     <frontend>
         <routers>
             <tim_tauron>
