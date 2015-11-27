@@ -10608,6 +10608,7 @@ body[class*="checkout-multishipping-"] #review-buttons-container {
 div.calendar table {
   border-collapse: separate;
 }
+
 div.calendar table td.button {
   display: table-cell;
   background: inherit;
