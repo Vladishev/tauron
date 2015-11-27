@@ -86,6 +86,9 @@
             </tim_tauron>
         </helpers>
         <models>
+            <tim_tauron>
+                <class>Tim_Tauron_Model</class>
+            </tim_tauron>
             <sales>
                 <rewrite>
                     <order>Tim_Tauron_Model_Order</order>
