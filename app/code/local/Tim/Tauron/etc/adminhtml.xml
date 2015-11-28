@@ -10,10 +10,38 @@
  */
 -->
 <config>
+    <menu>
+        <report>
+            <children>
+                <tim translate="title" module="tim_tauron">
+                    <title>TIM</title>
+                    <children>
+                        <tim_complaint translate="title">
+                            <title>Complaints</title>
+                            <action>adminhtml/complaintReport</action>
+                        </tim_complaint>
+                    </children>
+                </tim>
+            </children>
+        </report>
+    </menu>
     <acl>
         <resources>
             <admin>
                 <children>
+                    <report>
+                        <children>
+                            <tim translate="title" module="tim_tauron">
+                                <title>TIM</title>
+                                <children>
+                                    <tim_complaint translate="title">
+                                        <title>Complaints</title>
+                                        <sort_order>0</sort_order>
+                                    </tim_complaint>
+                                </children>
+                            </tim>
+                        </children>
+                    </report>
                     <system>
                         <children>
                             <config>
@@ -24,6 +52,9 @@
                                     <tim_sql_viev>
                                         <title>SQL View</title>
                                     </tim_sql_viev>
+                                    <tim_complaint>
+                                        <title>Complaint</title>
+                                    </tim_complaint>
                                 </children>
                             </config>
                         </children>

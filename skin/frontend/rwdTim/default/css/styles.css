@@ -3790,7 +3790,7 @@ line-height: 26px;
 /* -------------------------------------------- *
  * Skip Link - Cart
  */
-.skip-cart:not(.skip-active):hover .icon {
+.skip-cart:hover .icon {
   background-position: -50px -95px;
 }
 .skip-cart .icon {
@@ -3811,6 +3811,7 @@ line-height: 26px;
     top: 40px;
     right: 0;
     width: 320px;
+      
   }
 }
 /* -------------------------------------------- *
@@ -3834,6 +3835,7 @@ line-height: 26px;
   line-height: 22px;
   text-align: center;
   font-family: Verdana, arial, sans-serif;
+    
 }
 
 .skip-link.skip-active .count {
@@ -3888,6 +3890,7 @@ border-bottom-right-radius: 10px;
   .skip-link.skip-active .count {
     color: #e2007a;
   }
+
 }
 .skip-cart .count.empty {
   display: none;
@@ -10605,6 +10608,7 @@ body[class*="checkout-multishipping-"] #review-buttons-container {
 div.calendar table {
   border-collapse: separate;
 }
+
 div.calendar table td.button {
   display: table-cell;
   background: inherit;
@@ -10623,7 +10627,7 @@ div.calendar table td.button {
 
 .tim-header-carttop .header-minicart {
 float:right;
-    width:92px;
+    width:140px;
 }
 
 .tim-topmenu {

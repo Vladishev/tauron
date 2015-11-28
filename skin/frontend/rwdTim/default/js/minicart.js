@@ -54,7 +54,7 @@ Minicart.prototype = {
 
         // bind remove event
         $j(this.selectors.itemRemove).unbind('click.minicart').bind('click.minicart', function(e) {
-            e.preventDefault();
+
             cart.removeItem($j(this));
         });
 
