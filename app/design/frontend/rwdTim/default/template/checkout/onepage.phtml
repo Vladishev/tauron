@@ -52,7 +52,7 @@
     <?php if($this->getActiveStep()): ?>
     accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');
     <?php endif ?>
-    var checkout = new Excellence(accordion,{
+    var checkout = new CustomCheckout(accordion, {
         progress: '<?php echo $this->getUrl('checkout/onepage/progress') ?>',
         review: '<?php echo $this->getUrl('checkout/onepage/review') ?>',
         saveMethod: '<?php echo $this->getUrl('checkout/onepage/saveMethod') ?>',

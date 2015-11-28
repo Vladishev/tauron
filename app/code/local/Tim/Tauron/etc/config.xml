@@ -163,6 +163,13 @@
                     <frontName>tim_tauron</frontName>
                 </args>
             </tim_tauron>
+            <checkout>
+                <args>
+                    <modules>
+                        <Tim_Tauron before="Mage_Checkout">Tim_Tauron_Checkout</Tim_Tauron>
+                    </modules>
+                </args>
+            </checkout>
         </routers>
     </frontend>
 </config>

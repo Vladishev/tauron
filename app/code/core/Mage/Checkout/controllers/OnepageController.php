@@ -212,25 +212,6 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
         $this->loadLayout();
         $this->_initLayoutMessages('customer/session');
         $this->getLayout()->getBlock('head')->setTitle($this->__('Checkout'));
-
-        //If you want guest checkout by default
-//        $method = Mage_Checkout_Model_Type_Onepage::METHOD_GUEST;
-//        $this->getOnepage()->saveCheckoutMethod($method);
-
-        //If you want register checkout by default, uncomment code below
-         $method = Mage_Checkout_Model_Type_Onepage::METHOD_REGISTER;
-         $this->getOnepage()->saveCheckoutMethod($method);
-
-        //If you want only logged in users to be able to checkout, uncomment code below
-        /*
-        if(!Mage::getModel('customer/session')->isLoggedIn()){
-            $this->_redirect('customer/account/login');
-        }else{
-            $method = Mage_Checkout_Model_Type_Onepage::METHOD_CUSTOMER;
-            $this->getOnepage()->saveCheckoutMethod($method);
-        }
-        */
-
         $this->renderLayout();
     }
 
@@ -387,8 +368,6 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getPost('billing', array());
             $customerAddressId = $this->getRequest()->getPost('billing_address_id', false);
-            $data['customer_password'] = '123456';
-            $data['confirm_password'] = '123456';
             if (isset($data['email'])) {
                 $data['email'] = trim($data['email']);
             }
