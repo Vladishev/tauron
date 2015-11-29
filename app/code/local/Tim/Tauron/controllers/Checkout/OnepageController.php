@@ -59,6 +59,11 @@ class Tim_Tauron_Checkout_OnepageController extends Mage_Checkout_OnepageControl
         }
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getPost('billing', array());
+            if (!empty($data['company']) or !empty($data['vat_id'])) {
+                Mage::getSingleton('checkout/session')->setData('customer_type', 'b2b');
+            } else {
+                Mage::getSingleton('checkout/session')->setData('customer_type', 'b2c');
+            }
             $customerAddressId = $this->getRequest()->getPost('billing_address_id', false);
 
             //set password for customer, because we hide this fields on checkout
