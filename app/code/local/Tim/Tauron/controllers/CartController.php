@@ -16,7 +16,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
      */
     public function indexAction()
     {
-        $businessId = '007';
+        $businessId = '009';
         $telephone = '3880080800';
         $email = 'test@test.com';
         $pesel = 'pesel';
@@ -58,7 +58,14 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
         $salt = Mage::helper('tim_tauron')->getSalt();
         $checkMd5 = md5($salt . $data);
         $md5 = substr($requestData['md5'], 0, -1);
-        if ($md5 == $checkMd5) {
+
+        $isOrderExist = Mage::getModel('sales/order')
+            ->getCollection()
+            ->addFieldToFilter('tim_tauron_order', $requestData['businessId'])
+            ->getFirstItem()
+            ->getEntityId();
+
+        if ($md5 == $checkMd5 and empty($isOrderExist)) {
             $productId = Mage::getModel("catalog/product")->getIdBySku($requestData['sku']);
             $qty = '1';
             if (!$productId) {
