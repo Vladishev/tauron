@@ -21,7 +21,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
         $email = 'test@test.com';
         $pesel = 'pesel';
         $city = 'city';
-        $zipCode = 'Zip code';
+        $zipCode = '124568';
         $street = 'street';
         $home = 'home';
         $flat = 'flat';
