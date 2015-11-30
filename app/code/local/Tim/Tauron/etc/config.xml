@@ -50,6 +50,9 @@
             </tim_tauron>
         </helpers>
         <models>
+            <tim_tauron>
+                <class>Tim_Tauron_Model</class>
+            </tim_tauron>
             <sales>
                 <rewrite>
                     <order>Tim_Tauron_Model_Order</order>
@@ -75,6 +78,17 @@
                 </sales_email_order_ccsave_template>
             </email>
         </template>
+        <events>
+            <checkout_type_onepage_save_order_after>
+                <observers>
+                    <tim_test>
+                        <type>singleton</type>
+                        <class>tim_tauron/observer</class>
+                        <method>sendOrderId</method>
+                    </tim_test>
+                </observers>
+            </checkout_type_onepage_save_order_after>
+        </events>
     </global>
     <frontend>
         <routers>
