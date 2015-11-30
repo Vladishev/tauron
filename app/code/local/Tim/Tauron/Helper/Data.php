@@ -33,6 +33,17 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * Returns emails array from Configuration->Complaint
+     * @return array
+     */
+    public function getComplaintEmails()
+    {
+        $emails = explode(',', rtrim(Mage::getStoreConfig('tim_complaint/tim_complaint_group/complaint'), ',;'));
+        $emails = array_map('trim', $emails);
+        return $emails;
+    }
+
+    /**
      * Checks is customer exist
      * @param (str)$email
      * @return bool
@@ -63,5 +74,27 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
         } else {
             return true;
         }
+    }
+
+    /**
+     * Sending email
+     * @param (str)$toEmail
+     * @param (str)$template
+     * @param (arr)$templateVar
+     * @param (str)$subject
+     */
+    public function sendEmail($toEmail, $templateVar, $subject, $template)
+    {
+        $templateId = $template;
+        $emailTemplate = Mage::getModel('core/email_template')->loadDefault($templateId);
+        $processedTemplate = $emailTemplate->getProcessedTemplate($templateVar);
+        $mail = Mage::getModel('core/email')
+            ->setToEmail($toEmail)
+            ->setBody($processedTemplate)
+            ->setSubject($subject)
+            ->setFromName(Mage::getStoreConfig('trans_email/ident_general/name'))
+            ->setType('html');
+
+        $mail->send();
     }
 }

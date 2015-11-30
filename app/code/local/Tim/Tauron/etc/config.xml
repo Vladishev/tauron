@@ -12,10 +12,44 @@
 <config>
     <modules>
         <Tim_Tauron>
-            <version>0.0.3</version>
+            <version>0.0.4</version>
         </Tim_Tauron>
     </modules>
     <global>
+        <blocks>
+            <tim_tauron>
+                <class>Tim_Tauron_Block</class>
+            </tim_tauron>
+            <bundle>
+                <rewrite>
+                    <checkout_cart_item_renderer>Tim_Tauron_Block_Checkout_Cart_Item_Renderer</checkout_cart_item_renderer>
+                </rewrite>
+            </bundle>
+        </blocks>
+        <helpers>
+            <tim_tauron>
+                <class>Tim_Tauron_Helper</class>
+            </tim_tauron>
+        </helpers>
+        <models>
+            <tim_tauron>
+                <class>Tim_Tauron_Model</class>
+                <resourceModel>tim_tauron_resource</resourceModel>
+            </tim_tauron>
+            <tim_tauron_resource>
+                <class>Tim_Tauron_Model_Resource</class>
+                <entities>
+                    <complaint>
+                        <table>tim_complaint</table>
+                    </complaint>
+                </entities>
+            </tim_tauron_resource>
+            <sales>
+                <rewrite>
+                    <order>Tim_Tauron_Model_Order</order>
+                </rewrite>
+            </sales>
+        </models>
         <resources>
             <tim_tauron_setup>
                 <setup>
@@ -78,6 +112,11 @@
                     <file>sales/order_new_cc.html</file>
                     <type>html</type>
                 </sales_email_order_ccsave_template>
+                <complaint_template translate="label" module="tim_tauron">
+                    <label>Complaint email</label>
+                    <file>complaint.html</file>
+                    <type>html</type>
+                </complaint_template>
             </email>
         </template>
         <events>
@@ -99,6 +138,17 @@
             </catalog_controller_category_init_after>
         </events>
     </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <tim_tauron before="Mage_Adminhtml">Tim_Tauron_Adminhtml</tim_tauron>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
     <frontend>
         <routers>
             <tim_tauron>
