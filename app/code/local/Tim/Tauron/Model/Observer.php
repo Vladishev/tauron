@@ -56,7 +56,11 @@ class Tim_Tauron_Model_Observer
             ->setTimTauronCustomer($tauronCart['id_customer'])
             ->setTimTauronOrder($tauronCart['order_number'])
             ->setTimTauronEmployee($tauronCart['employee']);
-        $order->save();
+        try {
+            $order->save();
+        } catch (Exception $e) {
+            Mage::log($e->getMessage(), null, 'tim_tauron.log');
+        }
     }
 
     /**
@@ -73,7 +77,7 @@ class Tim_Tauron_Model_Observer
             try {
                 $customer->save();
             } catch (Exception $e) {
-                Mage::log($e->getMessage());
+                Mage::log($e->getMessage(), null, 'tim_tauron.log');
             }
         }
     }
