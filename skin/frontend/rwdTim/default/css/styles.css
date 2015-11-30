@@ -941,21 +941,21 @@ body:not(.customer-account) .block:first-child .block-title {
 .cart-table .product-cart-actions .button:hover,
 #co-shipping-method-form .buttons-set .button:hover,
 .footer .button:hover {
-  background: #2e8ab8;
+  background: #0b5ed8;
   cursor: pointer;
 }
 .button:active,
 .cart-table .product-cart-actions .button:active,
 #co-shipping-method-form .buttons-set .button:active,
 .footer .button:active {
-  background: #297aa3;
+  background: #0b5ed8;
   color: #FFFFFF;
 }
 .button:focus,
 .cart-table .product-cart-actions .button:focus,
 #co-shipping-method-form .buttons-set .button:focus,
 .footer .button:focus {
-  background-color: #297aa3;
+  background-color: #0b5ed8;
   outline: none;
   color: #FFFFFF;
 }
@@ -1003,11 +1003,12 @@ a.button:hover {
   display: inline-block;
   color: #e2007a;
   font-family: Verdana, arial, sans-serif;
+    text-decoration: none;
 }
 .button2 span:hover,
 .button2 span span:hover {
   text-decoration: none;
-  color: #246b8f;
+  color: #0b5ed8;
 }
 
 @media only screen and (max-width: 770px) {
@@ -1300,8 +1301,8 @@ a.button:hover {
 .footer-container {
   position: relative;
   max-width: 970px;
-  margin: 20px auto 0px auto;
-  padding: 0;
+  margin: 30px auto 0px auto;
+  padding: 0 5px 0 5px;
     
 }
 .main-container:after,
@@ -1629,7 +1630,7 @@ a.button:hover {
 
 .messages .success-msg li {
   color: black;
-  border-left: 5px solid #11b400;
+  border-left: 5px solid #e2007a;
   background-color: #eff5ea;
 }
 
@@ -1641,9 +1642,11 @@ a.button:hover {
   display: block;
   border-top: 6px solid transparent;
   border-bottom: 6px solid transparent;
-  border-left: 6px solid #11b400;
+  border-left: 6px solid #e2007a;
   border-right: none;
+    
 }
+
 
 @media only screen and (min-width: 915px) {
   .order-list-grid .col-1 {
@@ -1767,8 +1770,8 @@ a.button:hover {
 }
 
 .price-box .price {
-  color: #e2007a;
-  font-size: 16px;
+  color: #0b5ed8;
+  font-size: 24px;
 }
 
 .price-box .price,
@@ -2043,7 +2046,7 @@ span.weee {
  * Standard Formatted Text Block
  */
 .std p {
-  margin: 0 0 1.5em;
+  margin: 0 0 0.5em;
 }
 
 .std ol {
@@ -2449,7 +2452,7 @@ body.customer-account .data-table .show-details .summary-collapse:hover:before {
 }
 
 #shopping-cart-totals-table tfoot td .summary-collapse:before, #shopping-cart-totals-table tfoot td .summary-collapse:hover:before {
-  margin-bottom: 5px;
+  margin-bottom: 1px;
 }
 
 /* ============================================ *
@@ -4978,6 +4981,11 @@ p.product-name a:hover {
 .product-view .product-shop .product-name .h1 {
   float: left;
   margin-bottom: 5px;
+    text-transform: none;
+    background-color:#0b5ed8;
+    color:#fff;
+       padding: 5px 15px 5px 15px;
+
 }
 .product-view .product-shop .extra-info {
   float: left;
@@ -5198,7 +5206,7 @@ p.product-name a:hover {
 .product-view .add-to-cart {
   padding-bottom: 3px;
   margin-bottom: 10px;
-  border-bottom: 1px solid #cccccc;
+  
 }
 .product-view .add-to-cart .qty-wrapper,
 .product-view .product-options-bottom .price-box,
@@ -5256,12 +5264,16 @@ p.product-name a:hover {
 .product-view .add-to-cart-buttons .button {
   min-height: 40px;
   line-height: 40px;
-  font-size: 16px;
-  padding: 0px 30px;
+  font-size: 20px;
+  padding: 0px 20px;
   float: left;
   min-width: 160px;
   width: 100%;
   white-space: normal;
+}
+
+.product-view .add-to-cart-buttons .button:hover {
+  background-color: #0b5ed8;
 }
 .product-view .alert-price,
 .product-view .alert-stock {
@@ -5361,6 +5373,8 @@ p.product-name a:hover {
 }
 .product-collateral {
   clear: both;
+        margin-top: 40px;
+    margin-bottom: 0;
 }
 
 .collateral-tabs dd h2 {
@@ -5547,8 +5561,8 @@ p.product-name a:hover {
   .product-collateral {
     width: 100%;
     float: none;
-    padding-right: 0;
-    padding-left: 0;
+    padding-right: 5px;
+    padding-left:5px;
   }
 }
 @media only screen and (min-width: 771px) {
@@ -5630,7 +5644,7 @@ p.product-name a:hover {
   width: 100%;
   margin: 10px 0 0;
   padding: 10px 15px 15px;
-  border: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
   clear: both;
   position: relative;
 }
@@ -5753,11 +5767,11 @@ p.product-name a:hover {
 }
 
 .product-options-bottom {
-  background-color: #f4f4f4;
+  
   padding: 15px 20px;
-  border: 1px solid #cccccc;
-  border-top: 0;
-  margin-bottom: 10px;
+    border-top: 0;
+  margin-bottom: 20px;
+    border-bottom: 1px solid #cccccc;
 }
 
 .product-options-bottom:after {
@@ -6133,8 +6147,7 @@ p.product-name a:hover {
 .cart-forms .giftcard,
 .cart-forms .shipping {
   padding: 10px;
-  background-color: #f4f4f4;
-  border: 1px solid #cccccc;
+    border: 1px solid #cccccc;
 }
 
 .cart-table,
@@ -6189,7 +6202,7 @@ p.product-name a:hover {
   .display-single-price .cart-forms,
   .display-single-price .cart-totals-wrapper,
   .display-single-price .crosssell {
-    width: 50%;
+    width: 100%;
   }
   .display-single-price .crosssell {
     clear: right;
@@ -6237,12 +6250,15 @@ p.product-name a:hover {
   border-bottom: none;
   margin-bottom: 6px;
   margin-right: 10px;
+    background-color: #0b5ed8;
+    color: #fff;
+    padding: 5px 14px;
 }
 
 .checkout-types {
-  float: right;
-  text-align: right;
-  max-width: 100%;
+float: none;
+    width: 100%;
+        text-align: center;
   /* We always want this shipping method to display on its own line */
 }
 .checkout-types li {
@@ -6727,8 +6743,7 @@ p.product-name a:hover {
   font-family: Verdana, arial, sans-serif;
   font-size: 12px;
   margin-bottom: 20px;
-  text-transform: uppercase;
-  width: 100%;
+    width: 100%;
 }
 .cart .cart-totals table td {
   padding: 2px 0px;
@@ -6742,11 +6757,9 @@ p.product-name a:hover {
   padding-bottom: 10px;
 }
 .cart .cart-totals table tfoot {
-  border-top: 1px solid #E6E6E6;
-  border-bottom: 1px solid #E6E6E6;
 }
 .cart .cart-totals table tfoot td {
-  font-size: 24px;
+  font-size: 14px;
   padding: 2px 5px;
   vertical-align: top;
 }
@@ -8884,7 +8897,7 @@ div.paypal-logo span > img {
   background-color: #2e8ab8;
 }
 .slideshow-pager span.cycle-pager-active:before {
-  background-color: #297aa3;
+  background-color: #0b5ed8;
 }
 .slideshow-pager > * {
   cursor: pointer;
@@ -10917,3 +10930,85 @@ text-align: center;
 #nav li.level0.nav-4 {
     margin-left:15px; 
 }
+
+.more-views h2 {
+    text-transform: none;
+    margin-top:10px;
+    font-size:16px;
+        border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.shortdesc-second {
+    color:#0b5ed8;
+        padding-left: 20px;
+    display: block;
+    overflow: auto;
+       padding-right: 20px;
+}
+
+.shortdesc-first {
+         padding-left: 20px;
+    display: block;
+    overflow: auto;
+        background: #EFEFEF;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    border-left: 4px solid #0b5ed8;
+}
+
+.more-views {
+    margin-top:30px;
+}
+
+.pabout-one {
+    color:#0b5ed8;
+    font-size:22px;
+        font-weight:bold;
+    text-align: center;
+}
+.pabout-two {
+    font-weight:bold;
+}
+
+
+.product-tabs { margin-bottom:15px; border-bottom:1px solid #666; background:#f2f2f2 url(../images/bkg_tabs.gif) 0 100% repeat-x; height: 25px;}
+.product-tabs li { float:left; border-right:1px solid #a4a4a4; border-left:1px solid #fff; font-size:1.1em; line-height:1em; }
+.product-tabs li.first { border-left:0; }
+.product-tabs li.last { border-right:0; }
+.product-tabs a { display:block; padding:6px 15px; color:#444; }
+.product-tabs a:hover { background-color:#ddd; text-decoration:none; color:#444; }
+.product-tabs li.active a,
+.product-tabs li.active a:hover { background-color:#666; font-weight:bold; color:#fff; }
+.product-tabs-content h2 { display:none; font-size:12px; font-weight:bold; }
+
+#shopping-cart-totals-table tr {
+        border-bottom: 1px solid #bbb;
+line-height: 300%;
+}
+
+#shopping-cart-totals-table span.price {
+ font-weight:bold;   
+}
+
+li.method-checkout-cart-methods-multishipping {
+    display: none !important;
+}
+
+ul.checkout-types.top {
+    display: none !important;
+}
+
+li.method-checkout-cart-methods-onepage-bottom button {
+    width:100%;
+}
+
+td.product-cart-info dl.item-options {
+    display:none;
+}
+
+#empty_cart_button {
+    display:none;
+}
+    
