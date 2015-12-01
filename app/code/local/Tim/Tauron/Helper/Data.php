@@ -97,4 +97,19 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
 
         $mail->send();
     }
+
+    /**
+     * Gets customer type from session
+     * It sets in app/code/local/Tim/Tauron/controllers/Checkout/OnepageController.php
+     * @return bool|mixed
+     */
+    public function getCustomerType()
+    {
+        if (Mage::getSingleton('checkout/session')->getData('customer_type')) {
+            $customerType = Mage::getSingleton('checkout/session')->getData('customer_type');
+            return $customerType;
+        } else {
+            return false;
+        }
+    }
 }

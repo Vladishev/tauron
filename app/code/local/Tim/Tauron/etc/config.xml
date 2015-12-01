@@ -141,6 +141,24 @@
                     </category_redirect_to_product>
                 </observers>
             </catalog_controller_category_init_after>
+            <sales_order_place_after>
+                <observers>
+                    <tim_tauron_save_order_attributes>
+                        <type>singleton</type>
+                        <class>tim_tauron/observer</class>
+                        <method>saveUrlData</method>
+                    </tim_tauron_save_order_attributes>
+                </observers>
+            </sales_order_place_after>
+            <checkout_type_onepage_save_order_after>
+                <observers>
+                    <tim_tauron_save_customer_attributes>
+                        <type>singleton</type>
+                        <class>tim_tauron/observer</class>
+                        <method>saveCustomerAttributes</method>
+                    </tim_tauron_save_customer_attributes>
+                </observers>
+            </checkout_type_onepage_save_order_after>
         </events>
     </global>
     <admin>
