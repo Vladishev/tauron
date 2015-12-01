@@ -707,3 +707,11 @@ if ((typeof Range != "undefined") && !Range.prototype.createContextualFragment)
         return frag;
     };
 }
+
+
+jQuery(function() {
+  var loc = window.location.href; 
+  if(/onepage/.test(loc)) {
+    jQuery('.main').addClass('cartbackground');
+  }
+});
