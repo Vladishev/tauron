@@ -24,7 +24,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
         $zipCode = '124568';
         $street = 'street';
         $home = 'zamówienia';
-        $flat = 'będzie';
+        $flat = 'ćęąłńóśźżĄĆĘŁŃÓŚŹŻ';
         $name = 'Vasya';
         $surname = 'Pupkin';
         $sku = 'Bundle Prodyct';
@@ -59,7 +59,6 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
         $salt = Mage::helper('tim_tauron')->getSalt();
         $checkMd5 = md5($salt . $data);
         $md5 = substr($requestData['md5'], 0, -1);
-        $requestData = Tim_Tauron_Helper_Encoding::toISO8859($requestData);
 
         $isOrderExist = Mage::getModel('sales/order')
             ->getCollection()

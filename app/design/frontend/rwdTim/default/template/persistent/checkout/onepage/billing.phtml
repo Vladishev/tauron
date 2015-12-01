@@ -25,7 +25,7 @@
  */
 /** @var Mage_Checkout_Block_Onepage_Billing $this */
 ?>
-<?php $tauronCart = Tim_Tauron_Helper_Encoding::fixUTF8(Mage::getSingleton('checkout/session')->getData('tauron_cart')); ?>
+<?php $tauronCart = Tim_Tauron_Helper_Encoding::UTF8FixWin1252Chars(Mage::getSingleton('checkout/session')->getData('tauron_cart')); ?>
 <form id="co-billing-form" action="">
 <div class="fieldset">
     <p class="required"><?php echo $this->__('* Required Fields') ?></p>
