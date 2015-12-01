@@ -20,12 +20,12 @@ class Tim_Crm_Model_Webservice extends Mage_Core_Model_Abstract
 //            print_r($data->getDatas());
 //            die;
 //        }
-                $func = next(debug_backtrace(false));
-        if($func['function'] == 'sendOrder'){
-            echo '<pre>';
-            print_r($data->getDatas());
-            die;
-        }
+//                $func = next(debug_backtrace(false));
+//        if($func['function'] == 'sendOrder'){
+//            echo '<pre>';
+//            print_r($data->getDatas());
+//            die;
+//        }
         try{
             $soap->__soapCall($this->getAction(), $data->getDatas());
             $data->setLastRequest( $soap->__getLastRequest() );
