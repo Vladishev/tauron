@@ -133,6 +133,5 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
             $order->setTimSentToCrm(true);
         }
         $order->save();
-        $this->_redirectReferer();
     }
 }
