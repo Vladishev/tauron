@@ -83,13 +83,18 @@ class Tim_Tauron_Model_Observer
     }
 
     /**
-    * Sends order id to crm module
-    * @param Varien_Event_Observer $observer
-    */
+     * Sends order id to crm module
+     * @param Varien_Event_Observer $observer
+     * @return $this
+     */
     public function sendOrderId(Varien_Event_Observer $observer)
     {
         $orderId = $observer->getEvent()->getOrder()->getId();
-        $url = Mage::getUrl('tim_tauron/crm/sendtocrm') . '?id=' . $orderId;
-        header( 'Location: ' . $url );
+        try {
+            Mage::helper('tim_tauron')->sendToCrm($orderId);
+        } catch (Exception $e) {
+            Mage::log('Can\'t send data from CRM module.', null, 'tim_tauron.log');
+        }
+        return $this;
     }
 }

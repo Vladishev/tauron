@@ -112,4 +112,26 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
             return false;
         }
     }
+
+    /**
+     * Doing CRM module action the same like in
+     * app/code/local/Tim/Crm/controllers/Adminhtml/ManualController.php sendtocrmAction()
+     * @param (int)$orderId
+     */
+    public function sendToCrm($orderId)
+    {
+        $order = Mage::getModel('sales/order')->load($orderId);
+        $order->setTimSentToCrm(false);
+        $order->setTimError(false);
+        $order->setTimInfo('');
+        $order->save();
+
+        if(!Mage::getStoreConfig('tim_crm/cron/enable')){
+            if(Mage::getModel('crm/actions')->saveCustomer($order)){
+                Mage::getModel('crm/actions')->saveOrder($order);
+            }
+            $order->setTimSentToCrm(true);
+        }
+        $order->save();
+    }
 }
