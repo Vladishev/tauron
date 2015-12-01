@@ -16,14 +16,14 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
      */
     public function indexAction()
     {
-        $businessId = '0010';
+        $businessId = '0011';
         $telephone = '3880080800';
         $email = 'test@test.com';
-        $pesel = 'pesel';
+        $pesel = 'zamówienia';
         $city = 'city';
         $zipCode = '124568';
         $street = 'street';
-        $home = 'home';
+        $home = 'zamówienia';
         $flat = 'flat';
         $name = 'Vasya';
         $surname = 'Pupkin';
@@ -48,6 +48,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
         $requestData = array();
         $request = $this->getRequest()->getParam('request');
         $decodedRequest = base64_decode($request);
+
         parse_str($decodedRequest, $requestData);
         foreach ($requestData as $key => $value) {
             if ($key == 'md5') {
@@ -58,6 +59,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
         $salt = Mage::helper('tim_tauron')->getSalt();
         $checkMd5 = md5($salt . $data);
         $md5 = substr($requestData['md5'], 0, -1);
+//        $requestData = Tim_Tauron_Helper_Encoding::toISO8859($requestData);
 
         $isOrderExist = Mage::getModel('sales/order')
             ->getCollection()
