@@ -42,7 +42,8 @@ class Uluruz_Przelewy24_Model_Payment_Przelewy24 extends Mage_Payment_Model_Meth
 
             /** If order was successfully sent to CRM webservice, change title*/
             if ($order->getTimChanceId()) {
-                $desc = 'Id zamówienia: ' . $order->getTimChanceId() . ' MFG Id klienta ' . $order->getTimMfgId();
+                $timMfgId = Mage::getModel('customer/customer')->load($order->getCustomerId())->getTimMfgId();
+                $desc = 'Id zamówienia: ' . $order->getTimChanceId() . ' MFG Id klienta ' . $timMfgId;
             } else {
                 $desc = Mage::helper('przelewy24')->getParams()->test->valid ? $order_id : 'TEST_ERR102';
             }
