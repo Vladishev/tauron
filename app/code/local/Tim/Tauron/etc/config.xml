@@ -25,6 +25,11 @@
                     <checkout_cart_item_renderer>Tim_Tauron_Block_Checkout_Cart_Item_Renderer</checkout_cart_item_renderer>
                 </rewrite>
             </bundle>
+            <checkout>
+                <rewrite>
+                    <onepage>Tim_Tauron_Block_Checkout_Onepage</onepage>
+                </rewrite>
+            </checkout>
         </blocks>
         <helpers>
             <tim_tauron>
@@ -70,36 +75,6 @@
                 </connection>
             </tim_tauron_read>
         </resources>
-        <blocks>
-            <tim_tauron>
-                <class>Tim_Tauron_Block</class>
-            </tim_tauron>
-            <bundle>
-                <rewrite>
-                    <checkout_cart_item_renderer>Tim_Tauron_Block_Checkout_Cart_Item_Renderer</checkout_cart_item_renderer>
-                </rewrite>
-            </bundle>
-            <checkout>
-                <rewrite>
-                    <onepage>Tim_Tauron_Block_Checkout_Onepage</onepage>
-                </rewrite>
-            </checkout>
-        </blocks>
-        <helpers>
-            <tim_tauron>
-                <class>Tim_Tauron_Helper</class>
-            </tim_tauron>
-        </helpers>
-        <models>
-            <tim_tauron>
-                <class>Tim_Tauron_Model</class>
-            </tim_tauron>
-            <sales>
-                <rewrite>
-                    <order>Tim_Tauron_Model_Order</order>
-                </rewrite>
-            </sales>
-        </models>
         <template>
             <email>
                 <sales_email_order_przelewy24_template translate="label" module="sales">
@@ -159,8 +134,6 @@
                     </tim_tauron_save_customer_attributes>
                 </observers>
             </checkout_type_onepage_save_order_after>
-        </events>
-        <events>
             <checkout_type_onepage_save_order_after>
                 <observers>
                     <tim_test>
