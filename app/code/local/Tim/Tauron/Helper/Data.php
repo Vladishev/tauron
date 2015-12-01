@@ -125,7 +125,7 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
         $order->setTimError(false);
         $order->setTimInfo('');
         $order->save();
-Mage::log('CRM - '.$orderId);
+
         if(!Mage::getStoreConfig('tim_crm/cron/enable')){
             if(Mage::getModel('crm/actions')->saveCustomer($order)){
                 Mage::getModel('crm/actions')->saveOrder($order);
