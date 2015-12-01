@@ -16,7 +16,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
      */
     public function indexAction()
     {
-        $businessId = '009';
+        $businessId = '0010';
         $telephone = '3880080800';
         $email = 'test@test.com';
         $pesel = 'pesel';
