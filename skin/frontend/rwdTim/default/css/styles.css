@@ -2916,7 +2916,7 @@ form .form-instructions {
 }
 
 .data-table tfoot tr {
-  background: #f4f4f4;
+  
 }
 
 .data-table tbody td .item-options {
@@ -10703,7 +10703,11 @@ background: #fff url("../images/taurontlotemp.jpg") no-repeat scroll center cent
 }
 
 .footer-container a:link {
-        color:#000;
+        color:#e2007a;
+}
+.footer-container a:hover {
+        color:#0b5ed8;
+    text-decoration: none;
 }
 
 .header-before {
@@ -10741,7 +10745,7 @@ width:100%;
     margin-top:48px;
 }
 
-.level0.nav-1.active {
+.level0.nav-1.active, .level0.nav-2.active, .level0.nav-3.active, .level0.nav-4.active, .level0.nav-5.active {
     border-bottom:2px solid #0b5ed8;
 }
 
@@ -11012,3 +11016,98 @@ td.product-cart-info dl.item-options {
     display:none;
 }
     
+#billing-new-address-form input[type=text], #billing-new-address-form input[type=email], #billing-new-address-form input[type=tel]  {
+    width:100%;
+}
+
+
+.cartbackground {
+  background: url(../images/cartbackground.png) no-repeat;
+    background-position: right top;
+    background-size: auto;
+}
+
+@media only screen and (max-width: 980px) {
+    .cartbackground {
+  background: none;
+    
+}
+}
+.customercare {
+  background: url(../images/customercare-background.png) no-repeat;
+    background-position: right bottom;
+    background-size:contain; 
+}
+
+@media only screen and (max-width: 750px) {
+    .customercare {
+  background: none;
+    
+}
+}
+
+.customercare-title {
+    color:#0b5ed8;
+    font-size:24px;
+}
+
+.customercare-subtitle {
+
+    font-size:18px;
+}
+
+.customercare-location {
+font-size:16px;
+padding: 5px 0 5px 30px;    
+  background: url(../images/ico-customer-location.png) no-repeat;
+    background-position: left center;
+    background-size: auto;    
+}
+
+.customercare-phone {
+font-size:16px;
+padding: 5px 0 5px 30px;  
+      background: url(../images/ico-customer-phone.png) no-repeat;
+    background-position: left center;
+    background-size: auto; 
+}
+
+.customercare-hours {
+font-size:16px;
+padding: 5px 0 5px 30px;  
+      background: url(../images/ico-customer-clock.png) no-repeat;
+    background-position: left center;
+    background-size: auto; 
+}
+
+.customercare-email {
+font-size:16px;
+padding: 5px 0 5px 30px;  
+      background: url(../images/ico-customer-mail.png) no-repeat;
+    background-position: left center;
+    background-size: auto; 
+}
+
+.customercare-getback a:link {
+    width:50%;
+    text-align: center;
+    font-size:18px;
+    padding: 10px 25px 10px 25px;
+    background-color: #0b5ed8;
+    color: #fff;
+    margin-top:30px;
+    display:block;
+}
+
+.customercare-getback a:hover {
+    background-color: #e2007a;
+    text-decoration: none;
+    
+}
+
+.customercare-spaceup {
+    margin-top:20px;
+    border-top:1px solid #eee;
+    padding-top:20px;
+    width:50%;
+}
