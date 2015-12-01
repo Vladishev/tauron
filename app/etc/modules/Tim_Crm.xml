@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Tim_Crm>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Tim_Crm>
+    </modules>
+</config>

@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <tim_tab translate="label" module="crm">
+            <label>TIM SA</label>
+            <sort_order>1005001</sort_order>
+        </tim_tab>
+    </tabs>
+    <sections>
+        <tim_crm translate="label" module="crm">
+            <label>CRM</label>
+            <tab>tim_tab</tab>
+            <sort_order>500</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+             <groups>
+               <urls translate="label">
+                    <label>Połączenie z CRM</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <live_price_list_url>
+                            <label>Adres cennika</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </live_price_list_url>
+                        <live_crm_url>
+                            <label>Adres serwera CRM</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <comment>Wyłącznie host (domena lub adres IP)</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </live_crm_url>
+                        <live_commands_setting>
+                            <label>Użyj niestandardowych komend (niezalecane)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </live_commands_setting>
+                        <!-- commands -->
+                        <live_uri_getcustomerinfo>
+                            <label>URI dla getCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <live_commands_setting>1</live_commands_setting>
+                            </depends>
+                        </live_uri_getcustomerinfo>
+                        <live_action_getcustomerinfo>
+                            <label>Akcja dla getCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <live_commands_setting>1</live_commands_setting>
+                            </depends>
+                        </live_action_getcustomerinfo>
+                        
+                        <live_uri_pushcustomerinfo>
+                            <label>URI dla pushCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <live_commands_setting>1</live_commands_setting>
+                            </depends>
+                        </live_uri_pushcustomerinfo>
+                        <live_action_pushcustomerinfo>
+                            <label>Akcja dla pushCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <live_commands_setting>1</live_commands_setting>
+                            </depends>
+                        </live_action_pushcustomerinfo>
+                        
+                        <live_uri_sendorder>
+                            <label>URI dla sendOrder</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <live_commands_setting>1</live_commands_setting>
+                            </depends>
+                        </live_uri_sendorder>
+                        <live_action_sendorder>
+                            <label>Akcja dla sendOrder</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <live_commands_setting>1</live_commands_setting>
+                            </depends>
+                            <comment>
+                                <![CDATA[<script type="text/javascript">
+                                    var color = "#f5deb3";
+                                    var ids = ["row_tim_crm_urls_live_uri_getcustomerinfo",
+                                               "row_tim_crm_urls_live_action_getcustomerinfo",
+                                               "row_tim_crm_urls_live_uri_pushcustomerinfo",
+                                               "row_tim_crm_urls_live_action_pushcustomerinfo",
+                                               "row_tim_crm_urls_live_uri_sendorder",
+                                               "row_tim_crm_urls_live_action_sendorder"];
+                                    
+                                    for(var i = 0; i < ids.length; i++){
+                                        document.getElementById(ids[i]).style.background = color;
+                                    }
+                                </script>]]>
+                            </comment>
+                        </live_action_sendorder>
+                        
+                        <!-- stage -->
+                        <stage_default>
+                            <label>Własne ustawienia STAGE</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[Domyślnie serwer STAGE używa tych samych ustawień co serwer LIVE]]></tooltip>
+                        </stage_default>
+                        <stage_price_list_url>
+                            <label>Adres cennika</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <stage_default>1</stage_default>
+                            </depends>
+                        </stage_price_list_url>
+                        <stage_crm_url>
+                            <label>Adres serwera CRM</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <comment>Wyłącznie host (domena lub adres IP)</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <stage_default>1</stage_default>
+                            </depends>
+                        </stage_crm_url>
+                        <stage_commands_setting>
+                            <label>Użyj niestandardowych komend (niezalecane)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <stage_default>1</stage_default>
+                            </depends>
+                        </stage_commands_setting>
+                        <stage_uri_getcustomerinfo>
+                            <label>URI dla getCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <stage_default>1</stage_default>
+                                <stage_commands_setting>1</stage_commands_setting>
+                            </depends>
+                        </stage_uri_getcustomerinfo>
+                        <stage_action_getcustomerinfo>
+                            <label>Akcja dla getCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <stage_default>1</stage_default>
+                                <stage_commands_setting>1</stage_commands_setting>
+                            </depends>
+                        </stage_action_getcustomerinfo>
+                        
+                        <stage_uri_pushcustomerinfo>
+                            <label>URI dla pushCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <stage_default>1</stage_default>
+                                <stage_commands_setting>1</stage_commands_setting>
+                            </depends>
+                        </stage_uri_pushcustomerinfo>
+                        <stage_action_pushcustomerinfo>
+                            <label>Akcja dla pushCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>170</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <stage_default>1</stage_default>
+                                <stage_commands_setting>1</stage_commands_setting>
+                            </depends>
+                        </stage_action_pushcustomerinfo>
+                        
+                        <stage_uri_sendorder>
+                            <label>URI dla sendOrder</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <stage_default>1</stage_default>
+                                <stage_commands_setting>1</stage_commands_setting>
+                            </depends>
+                        </stage_uri_sendorder>
+                        <stage_action_sendorder>
+                            <label>Akcja dla sendOrder</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>190</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <stage_default>1</stage_default>
+                                <stage_commands_setting>1</stage_commands_setting>
+                            </depends>
+                            <comment>
+                                <![CDATA[<script type="text/javascript">
+                                    var color = "#f48e8e";
+                                    var ids = ["row_tim_crm_urls_stage_default",
+                                               "row_tim_crm_urls_stage_price_list_url",
+                                               "row_tim_crm_urls_stage_crm_url",
+                                               "row_tim_crm_urls_stage_commands_setting",
+                                               "row_tim_crm_urls_stage_uri_getcustomerinfo",
+                                               "row_tim_crm_urls_stage_action_getcustomerinfo",
+                                               "row_tim_crm_urls_stage_uri_pushcustomerinfo",
+                                               "row_tim_crm_urls_stage_action_pushcustomerinfo",
+                                               "row_tim_crm_urls_stage_uri_sendorder",
+                                               "row_tim_crm_urls_stage_action_sendorder"];
+                                    
+                                    for(var i = 0; i < ids.length; i++){
+                                        document.getElementById(ids[i]).style.background = color;
+                                    }
+                                </script>]]>
+                            </comment>
+                        </stage_action_sendorder>
+                        
+                        <!-- test -->
+                        <test_default>
+                            <label>Własne ustawienia TEST</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[Domyślnie serwer TEST używa tych samych ustawień co serwer LIVE]]></tooltip>
+                        </test_default>
+                        <test_price_list_url>
+                            <label>Adres cennika</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <test_default>1</test_default>
+                            </depends>
+                        </test_price_list_url>
+                        <test_crm_url>
+                            <label>Adres serwera CRM</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>220</sort_order>
+                            <comment>Wyłącznie host (domena lub adres IP)</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <test_default>1</test_default>
+                            </depends>
+                        </test_crm_url>
+                        <test_commands_setting>
+                            <label>Użyj niestandardowych komend (niezalecane)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>230</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <test_default>1</test_default>
+                            </depends>
+                        </test_commands_setting>
+                        <test_uri_getcustomerinfo>
+                            <label>URI dla getCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>240</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <test_default>1</test_default>
+                                <test_commands_setting>1</test_commands_setting>
+                            </depends>
+                        </test_uri_getcustomerinfo>
+                        <test_action_getcustomerinfo>
+                            <label>Akcja dla getCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>250</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <test_default>1</test_default>
+                                <test_commands_setting>1</test_commands_setting>
+                            </depends>
+                        </test_action_getcustomerinfo>
+                        
+                        <test_uri_pushcustomerinfo>
+                            <label>URI dla pushCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>260</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <test_default>1</test_default>
+                                <test_commands_setting>1</test_commands_setting>
+                            </depends>
+                        </test_uri_pushcustomerinfo>
+                        <test_action_pushcustomerinfo>
+                            <label>Akcja dla pushCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>270</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <test_default>1</test_default>
+                                <test_commands_setting>1</test_commands_setting>
+                            </depends>
+                        </test_action_pushcustomerinfo>
+                        
+                        <test_uri_sendorder>
+                            <label>URI dla sendOrder</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>280</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <test_default>1</test_default>
+                                <test_commands_setting>1</test_commands_setting>
+                            </depends>
+                        </test_uri_sendorder>
+                        <test_action_sendorder>
+                            <label>Akcja dla sendOrder</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>290</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <test_default>1</test_default>
+                                <test_commands_setting>1</test_commands_setting>
+                            </depends>
+                            <comment>
+                                <![CDATA[<script type="text/javascript">
+                                    var color = "#f3f48e";
+                                    var ids = ["row_tim_crm_urls_test_default",
+                                               "row_tim_crm_urls_test_price_list_url",
+                                               "row_tim_crm_urls_test_crm_url",
+                                               "row_tim_crm_urls_test_commands_setting",
+                                               "row_tim_crm_urls_test_uri_getcustomerinfo",
+                                               "row_tim_crm_urls_test_action_getcustomerinfo",
+                                               "row_tim_crm_urls_test_uri_pushcustomerinfo",
+                                               "row_tim_crm_urls_test_action_pushcustomerinfo",
+                                               "row_tim_crm_urls_test_uri_sendorder",
+                                               "row_tim_crm_urls_test_action_sendorder"];
+                                    
+                                    for(var i = 0; i < ids.length; i++){
+                                        document.getElementById(ids[i]).style.background = color;
+                                    }
+                                </script>]]>
+                            </comment>
+                        </test_action_sendorder>
+                        
+                        <!-- dev -->
+                        <dev_default>
+                            <label>Własne ustawienia DEV</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[Domyślnie serwer DEV używa tych samych ustawień co serwer LIVE]]></tooltip>
+                        </dev_default>
+                        <dev_price_list_url>
+                            <label>Adres cennika</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>310</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <dev_default>1</dev_default>
+                            </depends>
+                        </dev_price_list_url>
+                        <dev_crm_url>
+                            <label>Adres serwera CRM</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>320</sort_order>
+                            <comment>Wyłącznie host (domena lub adres IP)</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <dev_default>1</dev_default>
+                            </depends>
+                        </dev_crm_url>
+                        <dev_commands_setting>
+                            <label>Użyj niestandardowych komend (niezalecane)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>330</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <dev_default>1</dev_default>
+                            </depends>
+                        </dev_commands_setting>
+                        <dev_uri_getcustomerinfo>
+                            <label>URI dla getCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>340</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <dev_default>1</dev_default>
+                                <dev_commands_setting>1</dev_commands_setting>
+                            </depends>
+                        </dev_uri_getcustomerinfo>
+                        <dev_action_getcustomerinfo>
+                            <label>Akcja dla getCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>350</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <dev_default>1</dev_default>
+                                <dev_commands_setting>1</dev_commands_setting>
+                            </depends>
+                        </dev_action_getcustomerinfo>
+                        
+                        <dev_uri_pushcustomerinfo>
+                            <label>URI dla pushCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>360</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <dev_default>1</dev_default>
+                                <dev_commands_setting>1</dev_commands_setting>
+                            </depends>
+                        </dev_uri_pushcustomerinfo>
+                        <dev_action_pushcustomerinfo>
+                            <label>Akcja dla pushCustomerInfo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>370</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <dev_default>1</dev_default>
+                                <dev_commands_setting>1</dev_commands_setting>
+                            </depends>
+                        </dev_action_pushcustomerinfo>
+                        
+                        <dev_uri_sendorder>
+                            <label>URI dla sendOrder</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>380</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <dev_default>1</dev_default>
+                                <dev_commands_setting>1</dev_commands_setting>
+                            </depends>
+                        </dev_uri_sendorder>
+                        <dev_action_sendorder>
+                            <label>Akcja dla sendOrder</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>390</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <dev_default>1</dev_default>
+                                <dev_commands_setting>1</dev_commands_setting>
+                            </depends>
+                            <comment>
+                                <![CDATA[<script type="text/javascript">
+                                    var color = "#8ef490";
+                                    var ids = ["row_tim_crm_urls_dev_default",
+                                               "row_tim_crm_urls_dev_price_list_url",
+                                               "row_tim_crm_urls_dev_crm_url",
+                                               "row_tim_crm_urls_dev_commands_setting",
+                                               "row_tim_crm_urls_dev_uri_getcustomerinfo",
+                                               "row_tim_crm_urls_dev_action_getcustomerinfo",
+                                               "row_tim_crm_urls_dev_uri_pushcustomerinfo",
+                                               "row_tim_crm_urls_dev_action_pushcustomerinfo",
+                                               "row_tim_crm_urls_dev_uri_sendorder",
+                                               "row_tim_crm_urls_dev_action_sendorder"];
+                                    
+                                    for(var i = 0; i < ids.length; i++){
+                                        document.getElementById(ids[i]).style.background = color;
+                                    }
+                                   /* window.onload = function(){
+                                        var tr = document.getElementById('row_tim_crm_urls_stage_default');
+                                        var newTr = document.createElement('tr');
+                                        var td = document.createElement('td');
+                                        var a = document.createElement('a');
+                                        tr.parentNode.insertBefore(newTr, tr);
+                                        td.insert(a);
+                                        newTr.insert(td);
+                                    };*/
+                                </script>]]>
+                            </comment>
+                        </dev_action_sendorder>
+                    </fields>
+                </urls>
+                <suffix translate="label">
+                    <label>SUFIX</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <live_suffix>
+                            <label>Sufix GUID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <validate>validate-number required-entry</validate>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[Domyślnie serwer LIVE używa suffix'u 01]]></tooltip>
+                        </live_suffix>
+                        <!-- stage -->
+                        <stage_default>
+                            <label>Własne ustawienia STAGE</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[Domyślnie serwer STAGE używa suffix'u 02]]></tooltip>
+                        </stage_default>
+                        <stage_suffix>
+                            <label>Sufix GUID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <validate>validate-number required-entry</validate>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <stage_default>1</stage_default>
+                            </depends>
+                            <comment>
+                                <![CDATA[<script type="text/javascript">
+                                    var color = "#f48e8e";
+                                    var ids = ["row_tim_crm_suffix_stage_default",
+                                               "row_tim_crm_suffix_stage_suffix"];
+                                    
+                                    for(var i = 0; i < ids.length; i++){
+                                        document.getElementById(ids[i]).style.background = color;
+                                    }
+                                </script>]]>
+                            </comment>
+                        </stage_suffix>
+                        
+                        <!-- test -->
+                        <test_default>
+                            <label>Własne ustawienia TEST</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[Domyślnie serwer TEST używa suffix'u 03]]></tooltip>
+                        </test_default>
+                        <test_suffix>
+                            <label>Sufix GUID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <validate>validate-number required-entry</validate>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <test_default>1</test_default>
+                            </depends>
+                            <comment>
+                                <![CDATA[<script type="text/javascript">
+                                    var color = "#f3f48e";
+                                    var ids = ["row_tim_crm_suffix_test_default",
+                                               "row_tim_crm_suffix_test_suffix"];
+                                    
+                                    for(var i = 0; i < ids.length; i++){
+                                        document.getElementById(ids[i]).style.background = color;
+                                    }
+                                </script>]]>
+                            </comment>
+                        </test_suffix>
+                        
+                        <!-- dev -->
+                        <dev_default>
+                            <label>Własne ustawienia DEV</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[Domyślnie serwer DEV używa suffix'u 04]]></tooltip>
+                        </dev_default>
+                        <dev_suffix>
+                            <label>Sufix GUID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <validate>validate-number required-entry</validate>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <dev_default>1</dev_default>
+                            </depends>
+                            <comment>
+                                <![CDATA[<script type="text/javascript">
+                                    var color = "#8ef490";
+                                    var ids = ["row_tim_crm_suffix_dev_default",
+                                               "row_tim_crm_suffix_dev_suffix"];
+                                    
+                                    for(var i = 0; i < ids.length; i++){
+                                        document.getElementById(ids[i]).style.background = color;
+                                    }
+                                </script>]]>
+                            </comment>
+                        </dev_suffix>
+                    </fields>
+                </suffix>
+                <settings translate="label">
+                    <label>Pozostałe ustawienia</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <logical_id>
+                            <label>Logical ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logical_id>
+                        <body_id>
+                            <label>Body ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </body_id>
+                        <email_send_error>
+                            <label>Błędy wysłaj na adres e-mail</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_send_error>
+                    </fields>
+                </settings>
+                <cron translate="label">
+                    <label>CRON</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <enable>
+                            <label>Włącz CRON'a</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+                    </fields>
+                </cron>
+            </groups>
+        </tim_crm>
+    </sections>
+</config>

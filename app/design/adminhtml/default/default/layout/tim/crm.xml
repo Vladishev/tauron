@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <!--        <reference name="head">
+                    <action method="addCss"><name>tim/importff/css/style.css</name></action>
+                </reference>-->
+    </default>
+
+    <adminhtml_sales_order_view>
+        <reference name="sales_order_edit">
+            <action method="addButton"><id>TimReorderCRM</id><data helper="crm/button/getButtonData" /><level>-1</level><sort>0</sort><area helper="crm/button/getButtonArea" /></action>
+        </reference>
+    </adminhtml_sales_order_view>
+</layout>

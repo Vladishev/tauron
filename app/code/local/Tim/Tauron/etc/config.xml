@@ -160,6 +160,17 @@
                 </observers>
             </checkout_type_onepage_save_order_after>
         </events>
+        <events>
+            <checkout_type_onepage_save_order_after>
+                <observers>
+                    <tim_test>
+                        <type>singleton</type>
+                        <class>tim_tauron/observer</class>
+                        <method>sendOrderId</method>
+                    </tim_test>
+                </observers>
+            </checkout_type_onepage_save_order_after>
+        </events>
     </global>
     <admin>
         <routers>
