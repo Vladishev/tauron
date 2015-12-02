@@ -16,22 +16,22 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
      */
     public function indexAction()
     {
-        $firstName = 'Vasya';
-        $lastName = 'Pupkin';
-        $ppeCity = 'Ppe city';
-        $ppeZip = 'Ppe zip';
-        $ppeStreet = 'Ppe street';
-        $ppeFlat = 'Ppe flat';
+        $businessId = '0011';
+        $telephone = '3880080800';
         $email = 'test@test.com';
-        $phone = '3880080800';
+        $pesel = 'zamówienia';
+        $city = 'city';
+        $zipCode = '124568';
+        $street = 'street';
+        $home = 'zamówienia';
+        $flat = 'ćęąłńóśźżĄĆĘŁŃÓŚŹŻ';
+        $name = 'Vasya';
+        $surname = 'Pupkin';
         $sku = 'Bundle Prodyct';
-        $nip = 'nip';
-        $customerId = 'customerId';
-        $orderNumber = 'order number';
         $employee = 'employee';
         $salt = Mage::helper('tim_tauron')->getSalt();
-        $md5 = md5($firstName . $lastName . $ppeCity . $ppeZip . $ppeStreet . $ppeFlat . $email . $phone . $sku . $nip . $customerId . $orderNumber . $employee . $salt);
-        $requestString = 'first_name=' . $firstName . '&last_name=' . $lastName . '&ppe_city=' . $ppeCity . '&ppe_zip=' . $ppeZip . '&ppe_street=' . $ppeStreet . '&ppe_flat=' . $ppeFlat . '&email=' . $email . '&phone=' . $phone . '&sku=' . $sku . '&nip=' . $nip . '&id_customer=' . $customerId . '&order_number=' . $orderNumber . '&employee=' . $employee . '&md5=' . $md5;
+        $md5 = md5($salt . $businessId . $telephone . $email . $pesel . $city . $zipCode . $street . $home . $flat . $name . $surname . $sku . $employee);
+        $requestString = 'businessId=' . $businessId . '&telephone=' . $telephone . '&email=' . $email . '&pesel=' . $pesel . '&city=' . $city . '&zipCode=' . $zipCode . '&street=' . $street . '&home=' . $home . '&flat=' . $flat . '&name=' . $name . '&surname=' . $surname . '&sku=' . $sku . '&employee=' . $employee . '&md5=' . $md5 . '/';
         $encodedString = base64_encode($requestString);
         $url = Mage::getUrl("tim_tauron/cart/decode", array('request' => $encodedString));
 
@@ -48,6 +48,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
         $requestData = array();
         $request = $this->getRequest()->getParam('request');
         $decodedRequest = base64_decode($request);
+
         parse_str($decodedRequest, $requestData);
         foreach ($requestData as $key => $value) {
             if ($key == 'md5') {
@@ -56,8 +57,16 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
             $data .= $value;
         }
         $salt = Mage::helper('tim_tauron')->getSalt();
-        $checkMd5 = md5($data . $salt);
-        if ($requestData['md5'] == $checkMd5) {
+        $checkMd5 = md5($salt . $data);
+        $md5 = substr($requestData['md5'], 0, -1);
+
+        $isOrderExist = Mage::getModel('sales/order')
+            ->getCollection()
+            ->addFieldToFilter('tim_tauron_order', $requestData['businessId'])
+            ->getFirstItem()
+            ->getEntityId();
+
+        if ($md5 == $checkMd5 and empty($isOrderExist)) {
             $productId = Mage::getModel("catalog/product")->getIdBySku($requestData['sku']);
             $qty = '1';
             if (!$productId) {

@@ -136,11 +136,11 @@
             </checkout_type_onepage_save_order_after>
             <checkout_type_onepage_save_order_after>
                 <observers>
-                    <tim_test>
+                    <tim_send_order_to_crm>
                         <type>singleton</type>
                         <class>tim_tauron/observer</class>
                         <method>sendOrderId</method>
-                    </tim_test>
+                    </tim_send_order_to_crm>
                 </observers>
             </checkout_type_onepage_save_order_after>
         </events>
