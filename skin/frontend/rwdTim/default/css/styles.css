@@ -11155,3 +11155,27 @@ ol.nav-primary {
     text-decoration: none;
 
 }
+
+.pabout-three ul li {
+    margin-top:10px;
+}
+
+.pabout2a {
+    color:#0b5ed8;
+    margin-top:15px;
+    margin-bottom:10px;
+    border-left:3px solid #0b5ed8;
+}
+
+.lbulbsinfoe14 {
+   background: url(../images/e14tlo.jpg) no-repeat;
+    background-position: right bottom;
+    background-size:contain;    
+}
+
+.lbulbsinfoe27 {
+   background: url(../images/e27tlo.jpg) no-repeat;
+    background-position: right bottom;
+    background-size:contain;    
+    
+}
