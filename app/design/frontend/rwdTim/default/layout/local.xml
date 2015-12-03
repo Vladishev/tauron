@@ -12,4 +12,24 @@
             <remove name="checkout.cart.shipping"/>
         </reference>
     </checkout_cart_index>
+    <catalog_product_view>
+        <reference name="product.info">
+            <block type="catalog/product_view_attributes" name="product.tim_tabs1" as="tim_tabs1" template="catalog/product/view/tim_tabs1.phtml">
+                <action method="addToParentGroup"><group>detailed_info</group></action>
+                <action method="setTitle" translate="value"><value>Tim Tab 1</value></action>
+            </block>
+            <block type="catalog/product_view_attributes" name="product.tim_tabs2" as="tim_tabs2" template="catalog/product/view/tim_tabs2.phtml">
+                <action method="addToParentGroup"><group>detailed_info</group></action>
+                <action method="setTitle" translate="value"><value>Tim Tab 2</value></action>
+            </block>
+            <block type="catalog/product_view_attributes" name="product.tim_tabs3" as="tim_tabs3" template="catalog/product/view/tim_tabs3.phtml">
+                <action method="addToParentGroup"><group>detailed_info</group></action>
+                <action method="setTitle" translate="value"><value>Tim Tab 3</value></action>
+            </block>
+            <block type="catalog/product_view_attributes" name="product.tim_tabs4" as="tim_tabs4" template="catalog/product/view/tim_tabs4.phtml">
+                <action method="addToParentGroup"><group>detailed_info</group></action>
+                <action method="setTitle" translate="value"><value>Tim Tab 4</value></action>
+            </block>
+        </reference>
+    </catalog_product_view>
 </layout>
