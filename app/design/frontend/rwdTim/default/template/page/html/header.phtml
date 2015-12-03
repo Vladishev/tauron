@@ -29,8 +29,12 @@
 ?>
 <?php if ($this->getRequest()->getParam('popup')): ?>
     <script type="text/javascript">
-        var myWindow = window.open("", "Popup", "width=400, height=400");
-        myWindow.document.write("<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('tauron_popup')->toHtml(); ?>");
+jQuery(document).ready(function() {
+        var myWindow = document.getElementById("tauron_popup");
+        jQuery(myWindow).bPopup({
+            autoClose: 5000
+        });
+    });
     </script>
 <?php endif; ?>
    <div class="header-language-background">
@@ -98,3 +102,7 @@
 
 
 <?php echo $this->getChildHtml('topContainer'); ?>
+
+<div class="tauron_html_popup" id="tauron_popup">
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('tauron_popup')->toHtml(); ?>
+</div>

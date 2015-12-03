@@ -37,6 +37,7 @@
             <block type="page/html_head" name="head" as="head">
                 <action method="addJs"><script>prototype/prototype.js</script></action>
                 <action method="addJs"><script>jquery-2.1.4.min.js</script></action>				
+				<action method="addJs"><script>jquery.bpopup.min.js</script></action>					
                 <action method="addJs"><script>lib/jquery/noconflict.js</script></action>
                 <action method="addJs"><script>lib/ccard.js</script></action>
                 <action method="addJs"><script>prototype/validation.js</script></action>
