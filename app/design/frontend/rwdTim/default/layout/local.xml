@@ -16,19 +16,19 @@
         <reference name="product.info">
             <block type="catalog/product_view_attributes" name="product.tim_tabs1" as="tim_tabs1" template="catalog/product/view/tim_tabs1.phtml">
                 <action method="addToParentGroup"><group>detailed_info</group></action>
-                <action method="setTitle" translate="value"><value>Tim Tab 1</value></action>
+                <action method="setTitle" translate="value"><value>Rewolucja LED</value></action>
             </block>
             <block type="catalog/product_view_attributes" name="product.tim_tabs2" as="tim_tabs2" template="catalog/product/view/tim_tabs2.phtml">
                 <action method="addToParentGroup"><group>detailed_info</group></action>
-                <action method="setTitle" translate="value"><value>Tim Tab 2</value></action>
+                <action method="setTitle" translate="value"><value>E14 - parametry</value></action>
             </block>
             <block type="catalog/product_view_attributes" name="product.tim_tabs3" as="tim_tabs3" template="catalog/product/view/tim_tabs3.phtml">
                 <action method="addToParentGroup"><group>detailed_info</group></action>
-                <action method="setTitle" translate="value"><value>Tim Tab 3</value></action>
+                <action method="setTitle" translate="value"><value>E27 - parametry</value></action>
             </block>
             <block type="catalog/product_view_attributes" name="product.tim_tabs4" as="tim_tabs4" template="catalog/product/view/tim_tabs4.phtml">
                 <action method="addToParentGroup"><group>detailed_info</group></action>
-                <action method="setTitle" translate="value"><value>Tim Tab 4</value></action>
+                <action method="setTitle" translate="value"><value>Mity o żarówkach LED</value></action>
             </block>
         </reference>
     </catalog_product_view>
