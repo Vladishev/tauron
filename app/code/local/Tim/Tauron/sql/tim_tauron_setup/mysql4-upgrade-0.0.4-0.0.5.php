@@ -15,24 +15,30 @@ Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
 
 $staticBlocks = array(
     array(
+        'title' => 'Popup',
+        'identifier' => 'tauron-popup',
+//        'content' => '',
+        'is_active' => 1,
+        'stores' => array(0),
+    ), array(
         'title' => 'tim_tabs1',
         'identifier' => 'tim_tabs1',
         'content' => 'tim_tabs1',
         'is_active' => 1,
         'stores' => array(0),
-    ),array(
+    ), array(
         'title' => 'tim_tabs2',
         'identifier' => 'tim_tabs2',
         'content' => 'tim_tabs2',
         'is_active' => 1,
         'stores' => array(0),
-    ),array(
+    ), array(
         'title' => 'tim_tabs3',
         'identifier' => 'tim_tabs3',
         'content' => 'tim_tabs3',
         'is_active' => 1,
         'stores' => array(0),
-    ),array(
+    ), array(
         'title' => 'tim_tabs4',
         'identifier' => 'tim_tabs4',
         'content' => 'tim_tabs4',
