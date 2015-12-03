@@ -27,7 +27,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
         $flat = 'ćęąłńóśźżĄĆĘŁŃÓŚŹŻ';
         $name = 'Vasya';
         $surname = 'Pupkin';
-        $sku = 'Bundle Prodyct';
+        $sku = 'pakiet_1';
         $employee = 'employee';
         $salt = Mage::helper('tim_tauron')->getSalt();
         $md5 = md5($salt . $businessId . $telephone . $email . $pesel . $city . $zipCode . $street . $home . $flat . $name . $surname . $sku . $employee);
@@ -56,7 +56,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
             }
             $data .= $value;
         }
-        $salt = Mage::helper('tim_tauron')->getSalt();
+//        $salt = Mage::helper('tim_tauron')->getSalt();
         $checkMd5 = md5($salt . $data);
         $md5 = substr($requestData['md5'], 0, -1);
 
@@ -92,7 +92,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
             Mage::getSingleton('core/session')->setData('open_access', true);
             $this->_redirect('checkout/cart');
         } else {
-            $this->_redirect('home?popup=1');
+            $this->_redirect(Mage::getStoreConfig('web/default/front').'?popup=1');
         }
     }
 }
