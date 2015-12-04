@@ -146,10 +146,8 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
             ->load($orderId, 'increment_id')
             ->getTimChanceId();
         if ($timChanceId) {
-            $orderNumber = $timChanceId;
-        } else {
-            $orderNumber = $orderId;
+            return $timChanceId;
         }
-        return $orderNumber;
+        return $orderId;
     }
 }
