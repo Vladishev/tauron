@@ -44,7 +44,7 @@ For checkout/onepage/shipping.phtml:
 */
 /* @var $this Mage_Customer_Block_Widget_Name */
 ?>
-<?php $tauronCart = Tim_Tauron_Helper_Encoding::UTF8FixWin1252Chars(Mage::getSingleton('checkout/session')->getData('tauron_cart')); ?>
+<?php $tauronCart = Tim_Tauron_Helper_Encoding::toUTF8(Mage::getSingleton('checkout/session')->getData('tauron_cart')); ?>
 <div class="<?php echo $this->getContainerClassName()?>">
 <?php if ($this->showPrefix()): ?>
     <div class="field name-prefix">
