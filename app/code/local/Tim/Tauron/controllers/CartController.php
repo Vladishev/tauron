@@ -47,7 +47,8 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
         $data = '';
         $requestData = array();
         $request = $this->getRequest()->getParam('request');
-        $decodedRequest = base64_decode($request);
+        $decodedRequest = rawurldecode(base64_decode(rawurldecode($request)));
+        $decodedRequest = substr($decodedRequest, 1);
 
         $elems = explode("&", $decodedRequest);
         foreach($elems as $elem){
@@ -56,26 +57,22 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
         }
 
         foreach ($requestData as $key => $value) {
-            if ($key == 'md5') {
+            if ($key == 'checksum') {
                 continue;
             }
             $data .= $value;
         }
         $salt = Mage::helper('tim_tauron')->getSalt();
-        $checkMd5 = md5($salt . $data);
-        $md5 = substr($requestData['md5'], 0, -1);
+        $checkMd5 = strtolower(md5($salt . $data));
+        $md5 = strtolower($requestData['checksum']);
         $isOrderExist = Mage::getModel('sales/order')
             ->getCollection()
             ->addFieldToFilter('tim_tauron_order', $requestData['businessId'])
             ->getFirstItem()
             ->getEntityId();
 
-        foreach ($requestData as $key => $value) {
-            $DecodedRequestData[$key] = rawurldecode($value);
-        }
-
         if ($md5 == $checkMd5 and empty($isOrderExist)) {
-            $productId = Mage::getModel("catalog/product")->getIdBySku($DecodedRequestData['sku']);
+            $productId = Mage::getModel("catalog/product")->getIdBySku($requestData['sku']);
             $qty = '1';
             if (!$productId) {
                 echo 'This product does not exist. Please, check sku!';
@@ -96,7 +93,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
             $cart->addProduct($_product, $request);
             $cart->save();
             Mage::getSingleton('checkout/session')->setCartWasUpdated(true);
-            Mage::getSingleton('checkout/session')->setData('tauron_cart', $DecodedRequestData);
+            Mage::getSingleton('checkout/session')->setData('tauron_cart', $requestData);
             Mage::getSingleton('core/session')->setData('open_access', true);
             $this->_redirect('checkout/cart');
         } else {
