@@ -60,6 +60,8 @@
 "City","Miasto"
 "Clear Shopping Cart","Opróżnij koszyk"
 "Click <a href=""%s"" onclick=""this.target=\'_blank\'"">here to print</a> a copy of your order confirmation.","Kliknij <a href="%s" onclick="this.target=\'_blank\'">tu aby wydrukować</a> kopię potwierdzenia złożenia zamówienia."
+"Print the order confirmation - ","Wydrukuj potwierdzenie zamówienia - "
+"print.","drukuj."
 "Click <a href=""%s"">here</a> to continue shopping.","Kliknij <a href=""%s"">tutaj, aby kontynuować zakupy</a>."
 "Close","Zamknij"
 "Company","Firma"

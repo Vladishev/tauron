@@ -134,4 +134,20 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
         }
         $order->save();
     }
+
+    /**
+     * Returns: if not empty - 'tim_chance_id', else - 'increment_id'.
+     * @param (int)$orderId
+     * @return (int)mixed
+     */
+    public function getOrderNumber($orderId)
+    {
+        $timChanceId = Mage::getModel('sales/order')
+            ->load($orderId, 'increment_id')
+            ->getTimChanceId();
+        if ($timChanceId) {
+            return $timChanceId;
+        }
+        return $orderId;
+    }
 }
