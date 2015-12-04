@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Tim
  *
@@ -55,7 +56,7 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
             ->addAttributeToSelect('email')
             ->addAttributeToFilter('email', $email)
             ->getFirstItem();
-        if(!is_null($customer['email'])) {
+        if (!is_null($customer['email'])) {
             return true;
         } else {
             return false;
@@ -126,8 +127,8 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
         $order->setTimInfo('');
         $order->save();
 
-        if(!Mage::getStoreConfig('tim_crm/cron/enable')){
-            if(Mage::getModel('crm/actions')->saveCustomer($order)){
+        if (!Mage::getStoreConfig('tim_crm/cron/enable')) {
+            if (Mage::getModel('crm/actions')->saveCustomer($order)) {
                 Mage::getModel('crm/actions')->saveOrder($order);
             }
             $order->setTimSentToCrm(true);

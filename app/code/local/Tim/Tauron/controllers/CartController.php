@@ -51,7 +51,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
         $decodedRequest = substr($decodedRequest, 1);
 
         $elems = explode("&", $decodedRequest);
-        foreach($elems as $elem){
+        foreach ($elems as $elem) {
             $items = explode("=", $elem);
             $requestData[$items[0]] = ($items[1]);
         }
@@ -97,7 +97,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
             Mage::getSingleton('core/session')->setData('open_access', true);
             $this->_redirect('checkout/cart');
         } else {
-            $this->_redirect('home?popup=1');
+            $this->_redirect(Mage::getStoreConfig('web/default/front') . '?popup=1');
         }
     }
 }
