@@ -42,8 +42,8 @@ class Tim_Tauron_Checkout_OnepageController extends Mage_Checkout_OnepageControl
         $this->_initLayoutMessages('customer/session');
         $this->getLayout()->getBlock('head')->setTitle($this->__('Checkout'));
 
-        //Set register and checkout as default
-        $method = Mage_Checkout_Model_Type_Onepage::METHOD_REGISTER;
+        /** Set new method for prevent error in @see Mage_Checkout_Model_Type_Onepage string 327 */
+        $method = 'tauron_register';
         $this->getOnepage()->saveCheckoutMethod($method);
 
         $this->renderLayout();
