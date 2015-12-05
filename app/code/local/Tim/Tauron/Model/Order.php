@@ -48,8 +48,8 @@ class Tim_Tauron_Model_Order extends Mage_Sales_Model_Order
             $templateId = 'sales_email_order_przelewy24_template';
         }elseif ($this->getPayment()->getMethod() == 'banktransfer') {
             $templateId = 'sales_email_order_banktransfer_template';
-        }elseif ($this->getPayment()->getMethod() == 'ccsave') {
-            $templateId = 'sales_email_order_ccsave_template';
+        }elseif ($this->getPayment()->getMethod() == 'cashondelivery') {
+            $templateId = 'sales_email_order_cashondelivery_template';
         }
 
         /** @var $mailer Mage_Core_Model_Email_Template_Mailer */
