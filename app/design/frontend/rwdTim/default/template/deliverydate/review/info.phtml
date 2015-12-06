@@ -71,7 +71,7 @@
     <?php echo $this->getChildHtml('agreements') ?>
 
         <input type="checkbox" name="agreement-checkbox" id="agreement-checkbox" class="required-entry">
-        <label class="required" for="agreement-checkbox"><em>*</em><a href="<?php echo Mage::getBaseUrl('link') .'Regulamin.pdf'; ?>" target="_blank"><?php echo $this->__('I accept this agreement') ?></a></label>
+        <label class="required" for="agreement-checkbox"><em>*</em><a href="<?php echo Mage::getStoreConfig(Mage_Core_Model_Url::XML_PATH_SECURE_URL) .'Regulamin.pdf'; ?>" target="_blank"><?php echo $this->__('I accept this agreement') ?></a></label>
 
     <?php if (version_compare(Mage::getVersion(), '1.5.1.0', '>')) { ?>
     <div class="buttons-set" id="review-buttons-container">
