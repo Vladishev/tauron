@@ -89,7 +89,7 @@
                     <td class="method-info">
                         <h6>Metoda płatności:</h6>
                         <p>{{var payment_html}}</p>
-                        <p>Proszę dokonać płatności na nr konta #{{block type="core/template" template="tim/order_number.phtml" order=$order}}.</p>
+                        {{block type="core/template" template="tim/tim_chance_number.phtml" order=$order}}
                         <p>W tytule płatności proszę podać nr zamówienia.</p>
                     </td>
                 </tr>
