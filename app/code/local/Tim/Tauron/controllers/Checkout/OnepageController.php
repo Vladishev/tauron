@@ -70,6 +70,7 @@ class Tim_Tauron_Checkout_OnepageController extends Mage_Checkout_OnepageControl
             $password = $this->generateRandomString();
             $data['customer_password'] = $password;
             $data['confirm_password'] = $password;
+            //sets the 'use for shipping' to true as default
             $data['use_for_shipping'] = '1';
 
             if (isset($data['email'])) {
