@@ -64,6 +64,16 @@
                     <type_onepage>Tim_Tauron_Model_Checkout_Type_Onepage</type_onepage>
                 </rewrite>
             </checkout>
+            <core>
+                <rewrite>
+                    <store>Tim_Tauron_Model_Store</store>
+                </rewrite>
+            </core>
+            <directory>
+                <rewrite>
+                    <currency>Tim_Tauron_Model_Currency</currency>
+                </rewrite>
+            </directory>
         </models>
         <resources>
             <tim_tauron_setup>
