@@ -48,8 +48,8 @@ class Tim_Tauron_Model_Order extends Mage_Sales_Model_Order
             $templateId = 'sales_email_order_przelewy24_template';
         }elseif ($this->getPayment()->getMethod() == 'banktransfer') {
             $templateId = 'sales_email_order_banktransfer_template';
-        }elseif ($this->getPayment()->getMethod() == 'ccsave') {
-            $templateId = 'sales_email_order_ccsave_template';
+        }elseif ($this->getPayment()->getMethod() == 'cashondelivery') {
+            $templateId = 'sales_email_order_cashondelivery_template';
         }
 
         /** @var $mailer Mage_Core_Model_Email_Template_Mailer */
@@ -81,7 +81,8 @@ class Tim_Tauron_Model_Order extends Mage_Sales_Model_Order
         $mailer->setTemplateParams(array(
             'order'        => $this,
             'billing'      => $this->getBillingAddress(),
-            'payment_html' => $paymentBlockHtml
+            'payment_html' => $paymentBlockHtml,
+            'total' => $this->getStore()->formatPrice( $this->getGrandTotal() ),
         ));
 //        var_dump($mailer);die;
         /** @var $emailQueue Mage_Core_Model_Email_Queue */

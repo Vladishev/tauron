@@ -107,11 +107,11 @@
                     <file>sales/order_new_bank_transfer.html</file>
                     <type>html</type>
                 </sales_email_order_banktransfer_template>
-                <sales_email_order_ccsave_template translate="label" module="sales">
+                <sales_email_order_cashondelivery_template translate="label" module="sales">
                     <label>New Order</label>
-                    <file>sales/order_new_cc.html</file>
+                    <file>sales/order_new_cashondelivery.html</file>
                     <type>html</type>
-                </sales_email_order_ccsave_template>
+                </sales_email_order_cashondelivery_template>
                 <complaint_template translate="label" module="tim_tauron">
                     <label>Complaint email</label>
                     <file>complaint.html</file>
