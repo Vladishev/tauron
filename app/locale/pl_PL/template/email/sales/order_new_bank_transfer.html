@@ -88,7 +88,6 @@
                     {{/depend}}
                     <td class="method-info">
                         <p style="border:1px solid #BEBCB7; padding:13px 18px; background:#F8F7F5; ">
-                            <!--Prosimy o dokonanie wpłaty na konto <strong>{{var customer.getTimAccountNumber()}}</strong>.<br>-->
                             {{block type="core/template" template="tim/tim_account_number.phtml" order=$order}}
                             Tytuł wpłaty: Zamówienie nr {{block type="core/template" template="tim/order_number.phtml" order=$order}}<br>
                             Kwota do zapłaty: <strong>{{var total}}</strong>
