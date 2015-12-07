@@ -1,4 +1,4 @@
-<!--@subject {{var store.getFrontendName()}}: Nowe Zamówienie nr {{block type="core/template" template="tim/order_number.phtml" order=$order}} @-->
+<!--@subject {{var store.getFrontendName()}}: Nowe Zamówienie nr {{var order.increment_id}} @-->
 <!--@vars
 {"store url=\"\"":"Store Url",
 "skin url=\"images/logo_email.gif\" _area='frontend'":"Email Logo Image",
@@ -34,7 +34,7 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
                     <h1 style="font-size:22px; font-weight:normal; line-height:22px; margin:0 0 11px 0;"">Witaj {{htmlescape var=$order.getCustomerName()}}!</h1>
                     <p style="font-size:12px; line-height:16px; margin:0;">
 			Dziękujemy za Twoje zamówienie z {{var store.getFrontendName()}}.
-			W momencie wysłania przesyłki otrzymasz od Nas wiadomość z linkiem umożliwiającym jej śledzenie.
+			W momencie wysłania przesyłki otrzymasz od Nas wiadomość z linkiem umożliwiającym jej śledzenie.<br/>
                         Jeżeli masz jakiekolwiek pytania dotyczące Twojego zamówienia lub innej kwestii związanej ze sklepem, wyślij nam wiadomość: <a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#1E7EC8;">{{config path='trans_email/ident_support/email'}}</a> lub skontaktuj się telefonicznie <span class="nobr">{{config path='general/store_information/phone'}}</span>.
                     </p>
                     <p style="font-size:12px; line-height:16px; margin:0;">Potwierdzenie złożenia zamówienia znajduje się poniżej. Serdecznie dziękujemy i zapraszamy ponownie.</p>
@@ -42,7 +42,7 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
             </tr>
             <tr>
                 <td>
-                    <h2 style="font-size:18px; font-weight:normal; margin:0;">Twoje Zamówienie nr {{block type="core/template" template="tim/order_number.phtml" order=$order}} <small>(z dnia {{var order.getCreatedAtFormated('long')}})</small></h2>
+                    <h2 style="font-size:18px; font-weight:normal; margin:0;">Twoje Zamówienie nr {{var order.increment_id}} <small>(z dnia {{var order.getCreatedAtFormated('long')}})</small></h2>
                 </td>
             </tr>
             <tr>
@@ -98,12 +98,15 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
                 </td>
             </tr>
             <tr>
+                <td>{{template config_path="design/email/footer"}}</td>
+            </tr>
+            <tr>
                 <td bgcolor="#EAEAEA" align="center" style="background:#EAEAEA; text-align:center;"><center><p style="font-size:12px; margin:0;">Dziękujemy, <strong>{{var store.getFrontendName()}}</strong></p></center></td>
             </tr>
         </table>
     </td>
 </tr>
-    {{template config_path="design/email/footer"}}
 </table>
 </div>
 </body>
+
