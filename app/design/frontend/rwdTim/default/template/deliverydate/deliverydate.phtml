@@ -1,12 +1,12 @@
 <dd>
     <ul style="border-top: 1px solid #D1D1D1; margin-top: 12px; padding-top: 10px;">
     <li>
-        <label for="page_date-end">Delivery Date:</label>
-        <input name="shipping_arrival_date_display" id="shipping_arrival_date_display" value="" title="date" class=" input-text" style="width: 100px;" type="text"> <img src="<?php echo Mage::getBaseUrl('skin')?>adminhtml/default/default/images/grid-cal.gif" alt="" class="v-middle" id="shipping_arrival_date_trig" title="Select Date" style=""> <a href="javascript:void(0)" id="link_reset" style="margin-left:5px;"><img src="<?php echo $this->getSkinUrl('images/ico_reset.png');?>" alt="" class="v-middle" title="Reset"></a>
+        <label for="page_date-end">Ustal datę wysyłki:</label>
+        <input name="shipping_arrival_date_display" id="shipping_arrival_date_display" value="" title="date" class=" input-text" style="width: 100px;" type="text"> <img src="<?php echo Mage::getBaseUrl('skin')?>adminhtml/default/default/images/grid-cal.gif" alt="" class="v-middle" id="shipping_arrival_date_trig" title="Ustaw datę" style=""> <a href="javascript:void(0)" id="link_reset" style="margin-left:5px;"><img src="<?php echo $this->getSkinUrl('images/ico_reset.png');?>" alt="" class="v-middle" title="Resetuj"></a>
         <input name="shipping_arrival_date" id="shipping_arrival_date" value="" onChange="shippingArrivalDateOnChange(this); return false;" title="date"  type="hidden"> 
     </li>
     <li>
-        <label for="shipping_arrival_comments">Delivery Comments:</label><br/>
+        <label for="shipping_arrival_comments">Uwagi do wysyłki:</label><br/>
         <textarea cols="65" rows="8" name="shipping_arrival_comments" id="shipping_arrival_comments"></textarea></li>
     <li>  <i><?php echo Mage::getStoreConfig('deliverydate/deliverydate_general/deliverydate_html'); ?></i>
     </li>
