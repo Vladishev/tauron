@@ -1,4 +1,4 @@
-<!--@subject {{var store.getFrontendName()}}: New Order # {{var order.increment_id}} @-->
+<!--@subject {{var store.getFrontendName()}}: New Order # {{block type="core/template" template="tim/order_number.phtml" order=$order}} @-->
 <!--@vars
 {"store url=\"\"":"Store Url",
 "var logo_url":"Email Logo Image Url",
@@ -51,7 +51,7 @@
     </tr>
     <tr>
         <td class="order-details">
-            <h3>Your order <span class="no-link">#{{var order.increment_id}}</span></h3>
+            <h3>Your order <span class="no-link">#{{block type="core/template" template="tim/order_number.phtml" order=$order}}</span></h3>
             <p>Placed on {{var order.getCreatedAtFormated('long')}}</p>
         </td>
     </tr>
