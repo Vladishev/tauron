@@ -1,0 +1,7 @@
+<?php
+if ($this->getOrder()->getTimChanceId()) {
+    echo $this->getOrder()->getTimChanceId();
+} else {
+    echo $this->getOrder()->getIncrementId();
+}
+?>
