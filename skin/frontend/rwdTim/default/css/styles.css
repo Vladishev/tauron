@@ -10980,6 +10980,7 @@ text-align: center;
 }
 .pabout-two {
     font-weight:bold;
+        margin-bottom: 20px !important;
 }
 
 
@@ -11100,8 +11101,6 @@ padding: 5px 0 5px 30px;
     color: #0b5ed8;
     margin-top: 10px;
     display: block;
-    border-top: 1px solid #eee;
-        width: 50%;
 }
 
 .customercare-getback a:hover {
@@ -11120,6 +11119,12 @@ padding: 5px 0 5px 30px;
     border-top:1px solid #eee;
     padding-top:20px;
     width:50%;
+}
+
+.customercare-getback {
+        border-top: 1px solid #eee !important;
+    margin-top: 10px;
+    width: 50%;
 }
 
 ol.nav-primary {
@@ -11165,12 +11170,10 @@ ol.nav-primary {
 }
 
 .pabout2a {
-color: #0b5ed8;
-    margin-top: 20px;
-    margin-bottom: 8px;
-    border-left: 2px solid #0b5ed8;
+    color: #0b5ed8;
+    margin-top: 25px !important;
+    margin-bottom: 5px !important;
     font-weight: bold;
-    padding-left: 8px;
 }
 
 .lbulbsinfoe14 {
