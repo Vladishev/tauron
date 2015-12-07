@@ -20,6 +20,6 @@ class Tim_Tauron_Model_Currency extends Mage_Directory_Model_Currency
      */
     public function format($price, $options = array(), $includeContainer = true, $addBrackets = false)
     {
-        return $this->formatPrecision($price, 4, $options, $includeContainer, $addBrackets);
+        return $this->formatPrecision($price, 2, $options, $includeContainer, $addBrackets);
     }
 }
