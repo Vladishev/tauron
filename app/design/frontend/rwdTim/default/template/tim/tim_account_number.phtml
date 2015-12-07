@@ -1,0 +1,9 @@
+<?php
+$customerId = $this->getOrder()->getCustomerId();
+$timChanceID = Mage::getModel('customer/customer')->load($customerId)->getTimAccountNumber();
+//echo '<hr><pre>'.$this->getOrder()->getData().'</pre><hr>';
+//echo '<hr><pre>'.Mage::getModel('customer/customer')->load($customerId)->getData().'</pre><hr>';
+if ($timChanceID) {
+    echo 'Prosimy o dokonanie wpłaty na konto <strong>' . $timChanceID . '</strong>.<br>';
+}
+?>

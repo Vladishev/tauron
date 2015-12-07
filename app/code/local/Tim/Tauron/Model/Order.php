@@ -81,7 +81,8 @@ class Tim_Tauron_Model_Order extends Mage_Sales_Model_Order
         $mailer->setTemplateParams(array(
             'order'        => $this,
             'billing'      => $this->getBillingAddress(),
-            'payment_html' => $paymentBlockHtml
+            'payment_html' => $paymentBlockHtml,
+            'total' => $this->getStore()->formatPrice( $this->getGrandTotal() ),
         ));
 //        var_dump($mailer);die;
         /** @var $emailQueue Mage_Core_Model_Email_Queue */
