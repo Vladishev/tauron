@@ -54,7 +54,7 @@ class Tim_Tauron_Model_Observer
         $order = Mage::getModel('sales/order')
             ->load($orderId, 'entity_id')
             ->setTimTauronCustomer($tauronCart['pesel'])
-            ->setTimTauronOrder($tauronCart['businessId'])
+            ->setTimTauronOrder($tauronCart['businessid'])
             ->setTimTauronEmployee($tauronCart['employee']);
         try {
             $order->save();
