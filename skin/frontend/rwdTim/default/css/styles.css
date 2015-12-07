@@ -10640,7 +10640,7 @@ div.calendar table td.button {
 
 .tim-header-carttop .header-minicart {
 float:right;
-    width:140px;
+/*    width:140px; */
 }
 
 .tim-topmenu {
@@ -10868,9 +10868,13 @@ content: '.';
 
 .lp-photo2 {
     position: absolute;
-    top:0px;
+    bottom:0px;
     left:24%;
     z-index: 0;
+}
+
+.lp-photo2 img {
+    max-height: 435px;
 }
 
 
@@ -10949,6 +10953,7 @@ text-align: center;
     display: block;
     overflow: auto;
        padding-right: 20px;
+    font-weight: bold;
 }
 
 .shortdesc-first {
@@ -10959,7 +10964,7 @@ text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 20px;
-    border-left: 4px solid #0b5ed8;
+    /* border-left: 4px solid #0b5ed8; */
 }
 
 .more-views {
@@ -10971,6 +10976,7 @@ text-align: center;
     font-size:22px;
         font-weight:bold;
     text-align: center;
+    text-transform: uppercase;
 }
 .pabout-two {
     font-weight:bold;
@@ -11089,26 +11095,24 @@ padding: 5px 0 5px 30px;
 }
 
 .customercare-getback a:link {
-    width:50%;
-    text-align: center;
-    font-size:18px;
-    padding: 10px 25px 10px 25px;
-    background-color: #0b5ed8;
-    color: #fff;
-    margin-top:30px;
-    display:block;
+    font-size: 14px;
+    padding: 8px 0 0 30px;
+    color: #0b5ed8;
+    margin-top: 10px;
+    display: block;
+    border-top: 1px solid #eee;
+        width: 50%;
 }
 
 .customercare-getback a:hover {
-    background-color: #e2007a;
+    color: #e2007a;
     text-decoration: none;
     
 }
 
 .customercare-getback a:visited {
-    background-color: #0b5ed8;
     text-decoration: none;
-        color: #fff;
+        color: #0b5ed8;
 }
 
 .customercare-spaceup {
@@ -11161,10 +11165,12 @@ ol.nav-primary {
 }
 
 .pabout2a {
-    color:#0b5ed8;
-    margin-top:15px;
-    margin-bottom:10px;
-    border-left:3px solid #0b5ed8;
+color: #0b5ed8;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    border-left: 2px solid #0b5ed8;
+    font-weight: bold;
+    padding-left: 8px;
 }
 
 .lbulbsinfoe14 {
@@ -11178,4 +11184,9 @@ ol.nav-primary {
     background-position: right bottom;
     background-size:contain;    
     
+}
+
+ul.pabout-listli li {
+        font-size: 13px;
+    margin-bottom: 10px;
 }
