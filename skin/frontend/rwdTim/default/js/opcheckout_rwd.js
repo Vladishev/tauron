@@ -49,7 +49,7 @@ Checkout.prototype.gotoSection = function (section, reloadProgressBlock) {
 
 Review.prototype.checkAgree = function (fieldId) {
     if(!document.getElementById(fieldId).checked) {
-        jQuery('#tim-agreement-error').html('To pole jest wymagane.');
+        jQuery('#tim-agreement-error').html('Proszę zatwierdzić regulamin.');
         return false;
     } else {
         jQuery('#tim-agreement-error').html('');
