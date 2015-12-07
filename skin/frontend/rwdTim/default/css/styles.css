@@ -11193,3 +11193,9 @@ ul.pabout-listli li {
         font-size: 13px;
     margin-bottom: 10px;
 }
+
+.lbulbsinfoe14 p, lbulbsinfoe27 p {
+    color: #0b5ed8;
+    font-weight: bold;
+    font-size: 20px;
+}

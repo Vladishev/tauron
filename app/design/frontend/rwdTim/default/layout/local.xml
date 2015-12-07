@@ -28,7 +28,7 @@
             </block>
             <block type="catalog/product_view_attributes" name="product.tim_tabs4" as="tim_tabs4" template="catalog/product/view/tim_tabs4.phtml">
                 <action method="addToParentGroup"><group>detailed_info</group></action>
-                <action method="setTitle" translate="value"><value>Mity o żarówkach LED</value></action>
+                <action method="setTitle" translate="value"><value>Mity dotyczące żarówek LED</value></action>
             </block>
         </reference>
     </catalog_product_view>
