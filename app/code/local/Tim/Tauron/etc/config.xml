@@ -54,6 +54,11 @@
                     <order>Tim_Tauron_Model_Order</order>
                 </rewrite>
             </sales>
+            <customer>
+                <rewrite>
+                    <customer>Tim_Tauron_Model_Customer</customer>
+                </rewrite>
+            </customer>
             <checkout>
                 <rewrite>
                     <type_onepage>Tim_Tauron_Model_Checkout_Type_Onepage</type_onepage>

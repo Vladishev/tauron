@@ -67,7 +67,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
         $md5 = strtolower($requestData['checksum']);
         $isOrderExist = Mage::getModel('sales/order')
             ->getCollection()
-            ->addFieldToFilter('tim_tauron_order', $requestData['businessId'])
+            ->addFieldToFilter('tim_tauron_order', $requestData['businessid'])
             ->getFirstItem()
             ->getEntityId();
 
