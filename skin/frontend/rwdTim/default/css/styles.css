@@ -11279,6 +11279,7 @@ div.main-container.col2-right-layout {
     padding-right: 20px;
         background-color: #3c7ee0;     
          padding-left: 20px;
+         height: 140px;
 }   
 .nav-primary li.level0 > a {
     text-transform: none;
