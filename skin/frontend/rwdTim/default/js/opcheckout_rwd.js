@@ -46,3 +46,14 @@ Checkout.prototype.gotoSection = function (section, reloadProgressBlock) {
         this.resetPreviousSteps();
     }
 }
+
+Review.prototype.checkAgree = function (fieldId) {
+    if(!document.getElementById(fieldId).checked) {
+        jQuery('#tim-agreement-error').html('Proszę zatwierdzić regulamin.');
+        return false;
+    } else {
+        jQuery('#tim-agreement-error').html('');
+        return review.save();
+    }
+}
+

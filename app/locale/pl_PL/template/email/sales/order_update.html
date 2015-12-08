@@ -31,7 +31,6 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
                         Stan Twojego Zamówienia nr {{var order.increment_id}} to <br/>
                         <strong>{{var order.getStatusLabel()}}</strong>.
                     </p>
-                    <p style="font-size:12px; line-height:16px; margin:0 0 10px 0;">Możesz sprawdzić status po <a href="{{store url="customer/account/"}}" style="color:#1E7EC8;">zalogowaniu do swojego konta</a>.</p>
                     <p style="font-size:12px; line-height:16px; margin:0 0 10px 0;">{{var comment}}</p>
                     <p style="font-size:12px; line-height:16px; margin:0;">
                         Jeżeli masz jakiekolwiek pytania dotyczące Twojego zamówienia lub innej kwestii związanej ze sklepem, wyślij nam wiadomość: <a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#1E7EC8;">{{config path='trans_email/ident_support/email'}}</a> lub skontaktuj się telefonicznie <span class="nobr">{{config path='general/store_information/phone'}}</span>.
@@ -44,6 +43,7 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
         </table>
     </td>
 </tr>
+    {{template config_path="design/email/footer"}}
 </table>
 </div>
 </body>
