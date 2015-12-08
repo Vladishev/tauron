@@ -714,4 +714,7 @@ jQuery(function() {
   if(/onepage/.test(loc)) {
     jQuery('.main').addClass('cartbackground');
   }
+  if(/success/.test(loc)) {
+    jQuery('.main').removeClass('cartbackground');
+  }
 });
