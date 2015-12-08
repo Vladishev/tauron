@@ -97,4 +97,15 @@ class Tim_Tauron_Model_Observer
         }
         return $this;
     }
+
+    /**
+     * Clear session after successful order
+     * @param Varien_Event_Observer $observer
+     */
+    public function logoutClearSession(Varien_Event_Observer $observer)
+    {
+        $session = Mage::getSingleton('customer/session');
+        $session->logout();
+        $session->clear();
+    }
 }

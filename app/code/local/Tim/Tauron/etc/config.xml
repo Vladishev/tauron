@@ -163,6 +163,15 @@
                     </tim_send_order_to_crm>
                 </observers>
             </checkout_type_onepage_save_order_after>
+            <checkout_onepage_controller_success_action>
+                <observers>
+                    <logout_and_clear_session>
+                        <type>singleton</type>
+                        <class>tim_tauron/observer</class>
+                        <method>logoutClearSession</method>
+                    </logout_and_clear_session>
+                </observers>
+            </checkout_onepage_controller_success_action>
         </events>
     </global>
     <admin>
@@ -192,6 +201,13 @@
                     </modules>
                 </args>
             </checkout>
+            <customer>
+                <args>
+                    <modules>
+                        <Tim_Tauron before="Mage_Customer">Tim_Tauron_Customer</Tim_Tauron>
+                    </modules>
+                </args>
+            </customer>
         </routers>
     </frontend>
 </config>

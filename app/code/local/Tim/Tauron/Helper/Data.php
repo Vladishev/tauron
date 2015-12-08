@@ -151,4 +151,18 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
         }
         return $orderId;
     }
+
+    /**
+     * Gets last order increment id
+     * @return int
+     */
+    public function getLastOrderIncrementId()
+    {
+        $orders = Mage::getModel('sales/order')->getCollection()
+            ->setOrder('created_at','DESC')
+            ->setPageSize(1)
+            ->setCurPage(1);
+
+        return $orders->getFirstItem()->getIncrementId();
+    }
 }
