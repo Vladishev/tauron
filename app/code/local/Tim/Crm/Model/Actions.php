@@ -79,7 +79,7 @@ class Tim_Crm_Model_Actions extends Mage_Core_Model_Abstract
             $error = $this->getError($data); 
             $order->setTimError(true);
         } else {
-            $this->sendAccountNumberToCustomerIfNecessary($order,$customer);
+//            $this->sendAccountNumberToCustomerIfNecessary($order,$customer);
         }
         
         date_default_timezone_set('CET');
