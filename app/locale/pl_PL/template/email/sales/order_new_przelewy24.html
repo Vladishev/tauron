@@ -1,4 +1,4 @@
-<!--@subject {{var store.getFrontendName()}}: Nowe Zamówienie nr {{var order.increment_id}} @-->
+<!--@subject {{var store.getFrontendName()}}: Nowe Zamówienie nr {{block type="core/template" template="tim/order_number.phtml" order=$order}} @-->
 <!--@vars
 {"store url=\"\"":"Store Url",
 "skin url=\"images/logo_email.gif\" _area='frontend'":"Email Logo Image",
@@ -42,7 +42,7 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
             </tr>
             <tr>
                 <td>
-                    <h2 style="font-size:18px; font-weight:normal; margin:0;">Twoje Zamówienie nr {{var order.increment_id}} <small>(z dnia {{var order.getCreatedAtFormated('long')}})</small></h2>
+                    <h2 style="font-size:18px; font-weight:normal; margin:0;">Twoje Zamówienie nr {{block type="core/template" template="tim/order_number.phtml" order=$order}} <small>(z dnia {{var order.getCreatedAtFormated('long')}})</small></h2>
                 </td>
             </tr>
             <tr>
