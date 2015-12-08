@@ -47,7 +47,7 @@ $orderNumber = Mage::helper('tim_tauron')->getOrderNumber($lastIncrementId)
     </p>
 <?php endif;?>
 <?php  else :?>
-    <p><?php echo $this->__('Your order # is: %s.', $this->escapeHtml($lastIncrementId)) ?></p>
+    <p><?php echo $this->__('Your order # is: %s.', $this->escapeHtml($orderNumber)) ?></p>
 <?php endif;?>
 
 <?php if ($this->getAgreementRefId()): ?>
