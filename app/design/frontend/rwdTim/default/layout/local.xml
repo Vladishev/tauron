@@ -30,6 +30,10 @@
                 <action method="addToParentGroup"><group>detailed_info</group></action>
                 <action method="setTitle" translate="value"><value>Mity dotyczące żarówek LED</value></action>
             </block>
+            <block type="catalog/product_view_attributes" name="product.tim_tabs5" as="tim_tabs5" template="catalog/product/view/tim_tabs5.phtml">
+                <action method="addToParentGroup"><group>detailed_info</group></action>
+                <action method="setTitle" translate="value"><value>Zobacz</value></action>
+            </block>			
         </reference>
     </catalog_product_view>
 </layout>
