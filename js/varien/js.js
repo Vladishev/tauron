@@ -717,4 +717,14 @@ jQuery(function() {
   if(/success/.test(loc)) {
     jQuery('.main').removeClass('cartbackground');
   }
+
+jQuery('.product-essential .input-box:contains(3 x)').each(function(){
+  jQuery(this).html(jQuery(this).html().replace(/3 x/g,'<span class="product-show-big">3 x</span>'));
+});
+
+jQuery('.product-essential .input-box:contains(2 x)').each(function(){
+  jQuery(this).html(jQuery(this).html().replace(/2 x/g,'<span class="product-show-big">2 x</span>'));
+});
+
+  
 });

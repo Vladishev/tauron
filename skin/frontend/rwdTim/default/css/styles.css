@@ -10910,7 +10910,7 @@ content: '.';
 }
 
 .lp-photo2 img {
-    max-height: 435px;
+    max-height: 385px;
 }
 
 
@@ -10996,7 +10996,7 @@ text-align: center;
          padding-left: 20px;
     display: block;
     overflow: auto;
-        background: #EFEFEF;
+        /*background: #EFEFEF;*/
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 20px;
@@ -11293,3 +11293,16 @@ div.main-container.col2-right-layout {
 }
     
 }
+
+.product-essential .input-box {
+    font-size:18px;
+    display:block;
+}
+
+span.product-show-big {
+font-weight:bold;
+    color:#0b5ed8;
+    font-size:20px;
+}
+
+
