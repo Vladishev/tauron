@@ -81,7 +81,9 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
                 Mage::getSingleton('core/session')->unsetData('open_access');
             }
             $_product = Mage::getModel('catalog/product')->load($productId);
-        Mage::getSingleton('checkout/session')->clear();
+
+            Mage::getSingleton('checkout/session')->clear();
+
             $cart = Mage::getModel('checkout/cart');
             $cart->init();
             $params = array('product' => $productId, 'qty' => $qty,);
@@ -90,8 +92,6 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
             $request->setData($params);
 
             $cart->addProduct($_product, $request);
-//            echo '<pre>';
-//            var_dump($cart);die;
             $cart->save();
             Mage::getSingleton('checkout/session')->setCartWasUpdated(true);
             Mage::getSingleton('checkout/session')->setData('tauron_cart', $requestData);
