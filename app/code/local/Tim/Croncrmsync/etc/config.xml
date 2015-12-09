@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<config>
+    <modules>
+        <Tim_Croncrmsync>
+            <version>0.1.1</version>
+        </Tim_Croncrmsync>
+    </modules>
+    <crontab>
+        <jobs>
+            <tim_croncrmsync>
+                <schedule>
+                    <cron_expr>0 */2 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>croncrmsync/croncrmsync::crmsynchronization</model>
+                </run>
+            </tim_croncrmsync>
+        </jobs>
+    </crontab>    
+    <global>
+        <resources>
+            <tim_croncrmsync_setup>
+                <setup>
+                    <module>Tim_Croncrmsync</module>
+                    <class>Mage_Sales_Model_Mysql4_Setup</class>
+                </setup>              
+            </tim_croncrmsync_setup>           
+        </resources>
+        <helpers>
+            <croncrmsync>
+                <class>Tim_Croncrmsync_Helper</class>
+            </croncrmsync>
+        </helpers>
+        <models>
+            <croncrmsync>
+                <class>Tim_Croncrmsync_Model</class>
+            </croncrmsync>
+        </models>        
+        <template>
+            <email>
+                <custom_order_tpl module="Tim_Croncrmsync">
+                    <label>Status Mail Invoice</label>
+                    <file>statusmail_processing.html</file>
+                    <type>html</type>
+                </custom_order_tpl>
+                <invoice_inspection_tpl module="Tim_Croncrmsync">
+                    <label>Invoice Inspection Mail</label>
+                    <file>invoices_inspection.html</file>
+                    <type>html</type>
+                </invoice_inspection_tpl>
+                <custom_invoices_attachment_tpl module="Tim_Croncrmsync">
+                    <label>Invoice Mail Attachment</label>
+                    <file>invoices_mail.html</file>
+                    <type>html</type>
+                </custom_invoices_attachment_tpl>
+            </email>
+        </template>     
+    </global>
+</config>

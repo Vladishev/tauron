@@ -49,9 +49,9 @@
                                     <tim_salt>
                                         <title>Salt</title>
                                     </tim_salt>
-                                    <tim_sql_viev>
+                                    <tim_sql_view>
                                         <title>SQL View</title>
-                                    </tim_sql_viev>
+                                    </tim_sql_view>
                                     <tim_complaint>
                                         <title>Complaint</title>
                                     </tim_complaint>
