@@ -107,6 +107,11 @@ class Tim_Crm_Model_Data_Order extends Tim_Crm_Model_Data_Abstract
     
     protected function getSalesOrderHeader()
     {
+        if ($this->getOrder()->getShippingArrivalComments()) {
+            $comment = $this->getOrder()->getShippingArrivalComments();
+        } else {
+            $comment = $this->getOrder()->getGomageCheckoutCustomerComment();
+        }
         return array (
             'SalesOrderHeader' => 
                 array (
@@ -134,7 +139,7 @@ class Tim_Crm_Model_Data_Order extends Tim_Crm_Model_Data_Abstract
                                 ),
                             1 => array (
                                     'type' => 'Comment',
-                                    '_' => $this->getOrder()->getGomageCheckoutCustomerComment(),
+                                    '_' => $comment,
                                 ),
                         ),
                     'UserArea' => 
