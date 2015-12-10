@@ -53,6 +53,11 @@
                     <file>invoices_mail.html</file>
                     <type>html</type>
                 </custom_invoices_attachment_tpl>
+                <tim_tauron_invoices_attachment_tpl module="Tim_Croncrmsync">
+                    <label>Tim Tauron Attachment Mail</label>
+                    <file>tim_tauron_croncrmsync.html</file>
+                    <type>html</type>
+                </tim_tauron_invoices_attachment_tpl>
             </email>
         </template>     
     </global>

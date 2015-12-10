@@ -101,10 +101,14 @@ class Tim_Croncrmsync_Model_Croncrmsync extends Mage_Core_Model_Abstract
                     $write->query($query, $binds);
                     //success email with invoices 
                     self::InvoiceEmailing(self::InvoiceFileEntity($Pname), $order, 'Powiadomienie o wystawieniu faktury');
-                } else
-                    self::InvoiceInspectionEmailing($order, 'Brak pliku powiązanego z linkiem do faktury dostarczonym przez CRM.', true);
-            } else
-                self::InvoiceInspectionEmailing($order, 'Brak linku do faktury w CRM');
+                } else {
+//                    self::InvoiceInspectionEmailing($order, 'Brak pliku powiązanego z linkiem do faktury dostarczonym przez CRM.', true);
+                    Mage::log('Brak pliku powiązanego z linkiem do faktury dostarczonym przez CRM.', null, 'tim_tauron.log');
+                }
+            } else {
+//                self::InvoiceInspectionEmailing($order, 'Brak linku do faktury w CRM');
+                Mage::log('Brak linku do faktury w CRM', null, 'tim_tauron.log');
+            }
         }
     }
 
@@ -116,9 +120,9 @@ class Tim_Croncrmsync_Model_Croncrmsync extends Mage_Core_Model_Abstract
             foreach ($newcollection as $checkstatus) {
                 $statuschecker = $checkstatus->getStatus();
                 if ($checkstatus->getData('chance_id') == $row_modified) {
-                    self::InvoiceInfoUpdate($row, $checkstatus, $checkstatus->getStoreId());
+//                    self::InvoiceInfoUpdate($row, $checkstatus, $checkstatus->getStoreId());
                     switch ($row['Kod_statusu_zlecenia']) {
-                        case 001:
+                        /*case 001:
                             //  Mage::log('testing cron status updater'.$checkstatus->getData('status').'001');
                             if ($statuschecker != 'pending') {
                                 $checkstatus->setData('status', 'pending')->save();
@@ -159,17 +163,18 @@ class Tim_Croncrmsync_Model_Croncrmsync extends Mage_Core_Model_Abstract
                                 $checkstatus->setData('status', Mage_Sales_Model_Order::STATE_PROCESSING)->save();
                                 self::StatusUpdateEmailing($checkstatus, 'processing');
                             }
-                            break;
+                            break;*/
                         case 007: {
                             //Mage::log('testing cron status updater'.$checkstatus->getData('status').$checkstatus->getData('entity_id').'007');
                             if ($statuschecker != Mage_Sales_Model_Order::STATE_COMPLETE) {
                                 $checkstatus->setData('status', Mage_Sales_Model_Order::STATE_COMPLETE)->save();
-                                self::StatusUpdateEmailing($checkstatus, 'complete');
+//                                self::StatusUpdateEmailing($checkstatus, 'complete');
                             }
                             if ($checkstatus->getData('Tracking_link') == NULL && $row['Tracking_link']) {
                                 $checkstatus->setData('Tracking_link', $row['Tracking_link'])->save();
-                                self::StatusUpdateEmailing($checkstatus, 'Tracking_link');
+//                                self::StatusUpdateEmailing($checkstatus, 'Tracking_link');
                             }
+                            self::InvoiceInfoUpdate($row, $checkstatus, $checkstatus->getStoreId());
                             break;
                         }
                     }
@@ -248,9 +253,9 @@ class Tim_Croncrmsync_Model_Croncrmsync extends Mage_Core_Model_Abstract
 
         $emailTemplate = Mage::getModel('core/email_template');
 
-        $emailTemplate->loadDefault('custom_invoices_attachment_tpl');
+        $emailTemplate->loadDefault('tim_tauron_invoices_attachment_tpl');
 
-        $emailTemplate->setTemplateSubject($subject);
+//        $emailTemplate->setTemplateSubject($subject);
 
         // Get General email address (Admin->Configuration->General->Store Email Addresses)
         $salesData['email'] = Mage::getStoreConfig('trans_email/ident_general/email', Mage::app()->getStore($orderinfo->getStoreId()));
