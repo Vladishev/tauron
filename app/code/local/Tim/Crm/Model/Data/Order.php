@@ -149,7 +149,7 @@ class Tim_Crm_Model_Data_Order extends Tim_Crm_Model_Data_Abstract
     {
         //$orderDate = $this->getOrder()->getCreatedAt();
         if ($this->getOrder()->getShippingArrivalDate()) {
-            $requestedShipDateTime = $this->getOrder()->getShippingArrivalDate();
+            $requestedShipDateTime = date('Y-m-d', time($this->getOrder()->getShippingArrivalDate()));
         } else {
             $requestedShipDateTime = current(explode(' ',$this->getOrder()->getGomageDeliverydate()));
         }
