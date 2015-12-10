@@ -12,7 +12,7 @@
 <config>
     <modules>
         <Tim_Tauron>
-            <version>0.0.5</version>
+            <version>0.0.6</version>
         </Tim_Tauron>
     </modules>
     <global>
@@ -47,6 +47,9 @@
                     <complaint>
                         <table>tim_complaint</table>
                     </complaint>
+                    <xml>
+                        <table>tim_tauron_xml</table>
+                    </xml>
                 </entities>
             </tim_tauron_resource>
             <sales>
@@ -117,6 +120,11 @@
                     <file>complaint.html</file>
                     <type>html</type>
                 </complaint_template>
+                <customer_reminder_template translate="label" module="tim_tauron">
+                    <label>Customer reminder</label>
+                    <file>customer_reminder.html</file>
+                    <type>html</type>
+                </customer_reminder_template>
             </email>
         </template>
         <events>
@@ -152,15 +160,16 @@
                         <class>tim_tauron/observer</class>
                         <method>saveCustomerAttributes</method>
                     </tim_tauron_save_customer_attributes>
-                </observers>
-            </checkout_type_onepage_save_order_after>
-            <checkout_type_onepage_save_order_after>
-                <observers>
                     <tim_send_order_to_crm>
                         <type>singleton</type>
                         <class>tim_tauron/observer</class>
                         <method>sendOrderId</method>
                     </tim_send_order_to_crm>
+                    <delete_order_reminder>
+                        <type>singleton</type>
+                        <class>tim_tauron/observer</class>
+                        <method>deleteOrderReminder</method>
+                    </delete_order_reminder>
                 </observers>
             </checkout_type_onepage_save_order_after>
             <checkout_onepage_controller_success_action>
@@ -210,4 +219,24 @@
             </customer>
         </routers>
     </frontend>
+    <crontab>
+        <jobs>
+            <tauron_send_reminder_to_customer>
+                <schedule>
+                    <cron_expr>0 8 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>tim_tauron/serviceXml::sendReminderEmailToCustomer</model>
+                </run>
+            </tauron_send_reminder_to_customer>
+            <tauron_service_xml>
+                <schedule>
+                    <cron_expr>*/10 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>tim_tauron/serviceXml::run</model>
+                </run>
+            </tauron_service_xml>
+        </jobs>
+    </crontab>
 </config>

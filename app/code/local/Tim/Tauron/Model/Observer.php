@@ -108,4 +108,24 @@ class Tim_Tauron_Model_Observer
         $session->logout();
         $session->clear();
     }
+
+    /**
+     * Delete value from table tim_tauron_xml when customer prepare the order
+     * @param Varien_Event_Observer $observer
+     */
+    public function deleteOrderReminder(Varien_Event_Observer $observer)
+    {
+        $orderId = $observer->getEvent()->getOrder()->getEntityId();
+        $timTauronOrder = Mage::getModel('sales/order')->load($orderId)->getTimTauronOrder();
+        if ($timTauronOrder) {
+            $reminder = Mage::getModel('tim_tauron/xml')->load($timTauronOrder, 'business_id');
+            if ($reminder->getData()) {
+                try {
+                    $reminder->delete();
+                } catch (Exception $e) {
+                    Mage::log($e->getMessage(), null, 'tim_tauron.log');
+                }
+            }
+        }
+    }
 }

@@ -165,4 +165,20 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
 
         return $orders->getFirstItem()->getIncrementId();
     }
+
+    /**
+     * Return logo URL for emails
+     * @param $imageName
+     * @return string
+     * TODO temporary solution, because 'skin url="images/"' don't take rwdTim for package when send by cron
+     */
+    public function getLogoUrl($imageName)
+    {
+        $path = join(DS, array('frontend', 'rwdTim', 'default', 'images', $imageName));
+        $fullFileName = Mage::getBaseDir('skin') . DS . $path;
+        if (file_exists($fullFileName)) {
+            return Mage::getBaseUrl('skin') . DS . $path;
+        }
+        return Mage::getDesign()->getSkinUrl('images/' . $imageName);
+    }
 }

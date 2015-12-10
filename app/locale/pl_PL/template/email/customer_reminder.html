@@ -1,0 +1,31 @@
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+<body style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+<div style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+        <tr>
+            <td align="center" valign="top" style="padding:20px 0 20px 0">
+                <table bgcolor="#FFFFFF" cellspacing="0" cellpadding="10" border="0" width="650" style="border:1px solid #E0E0E0;">
+                    <!-- [ header starts here] -->
+                    <tr>
+                        <td valign="top"><a href="{{store url=""}}"><img src="{{var tim_logo_url}}" alt="{{var store.getFrontendName()}}"  style="margin-bottom:10px;" border="0"/></a></td>
+                    </tr>
+                    <!-- [ middle starts here] -->
+                    <tr>
+                        <td valign="top">
+                            <h1 style="font-size:22px; font-weight:normal; line-height:22px; margin:0 0 11px 0;"">Witaj {{htmlescape var=$customerName}}!</h1>
+                            <p style="font-size:12px; line-height:16px; margin:0;">
+                                Przypominamy o dokończeniu transakcji rozpoczętej na tauron.pl.
+                                Jeżeli masz jakiekolwiek pytania dotyczące Twojego zamówienia lub innej kwestii związanej ze sklepem, wyślij nam wiadomość: <a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#1E7EC8;">{{config path='trans_email/ident_support/email'}}</a> lub skontaktuj się telefonicznie <span class="nobr">{{config path='general/store_information/phone'}}</span>.
+                            </p>
+                            <p style="font-size:12px; line-height:16px; margin:0;">W celu złozenia zamówienia prosimy o skorzystanie z adresu.</p>
+                            <p style="font-size:12px; line-height:16px; margin:0;"><a href="{{htmlescape var=$base64Url}}" style="color:#1E7EC8;">{{htmlescape var=$base64Url}}</a>.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>

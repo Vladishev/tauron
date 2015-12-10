@@ -30,3 +30,6 @@
 "Comma separated","Comma separated"
 "Complaint","Complaint"
 "Your complaint was successfully added! Thank you for feedback!","Your complaint was successfully added! Thank you for feedback!"
+"Permission for this folder is %s. Change permission for this folder.","Permission for this folder is %s. Change permission for this folder."
+"Can\'t open the file: %s.","Can\'t open the file: %s."
+"File: %s was not moved.","File: %s was not moved."
