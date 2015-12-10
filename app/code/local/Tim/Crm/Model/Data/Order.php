@@ -148,7 +148,11 @@ class Tim_Crm_Model_Data_Order extends Tim_Crm_Model_Data_Abstract
     protected function getSalesOrderShipping()
     {
         //$orderDate = $this->getOrder()->getCreatedAt();
-        $requestedShipDateTime = current(explode(' ',$this->getOrder()->getGomageDeliverydate()));
+        if ($this->getOrder()->getShippingArrivalDate()) {
+            $requestedShipDateTime = $this->getOrder()->getShippingArrivalDate();
+        } else {
+            $requestedShipDateTime = current(explode(' ',$this->getOrder()->getGomageDeliverydate()));
+        }
         if(!$requestedShipDateTime){
                 $requestedShipDateTime = date('Y-m-d', strtotime('now + 2 days')); 
         }
