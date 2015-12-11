@@ -110,7 +110,7 @@ class Tim_Crm_Model_Data_Order extends Tim_Crm_Model_Data_Abstract
         if ($this->getOrder()->getShippingArrivalComments()) {
             $comment = $this->getOrder()->getShippingArrivalComments();
         } else {
-            $comment = $this->getOrder()->getGomageCheckoutCustomerComment();
+            $comment = '';
         }
         return array (
             'SalesOrderHeader' => 
