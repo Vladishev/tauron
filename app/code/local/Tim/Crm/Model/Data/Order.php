@@ -153,7 +153,7 @@ class Tim_Crm_Model_Data_Order extends Tim_Crm_Model_Data_Abstract
     protected function getSalesOrderShipping()
     {
         //$orderDate = $this->getOrder()->getCreatedAt();
-        $requestedShipDateTime = date('Y-m-d', time($this->getOrder()->getShippingArrivalDate()));
+        $requestedShipDateTime = date('Y-m-d', strtotime($this->getOrder()->getShippingArrivalDate()));
         if(!$requestedShipDateTime){
             $requestedShipDateTime = date('Y-m-d', strtotime('now + 2 days'));
         }
