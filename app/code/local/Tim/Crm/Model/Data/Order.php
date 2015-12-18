@@ -248,13 +248,20 @@ class Tim_Crm_Model_Data_Order extends Tim_Crm_Model_Data_Abstract
                     ),
             );
     }
-    
+
     protected function getSalesOrderItemDescription()
     {
-        return array (
+        if ($this->getOrder()->getPayment()->getMethod() == 'cashondelivery') {
+            return array(
+                'type' => 'Blokada_Linia',
+                '_' => 'false',
+            );
+        } else {
+            return array(
                 'type' => 'Blokada_Linia',
                 '_' => 'true',
             );
+        }
     }
 
     protected function getSalesOrderItemUnitPrice($_item,$type = false)
