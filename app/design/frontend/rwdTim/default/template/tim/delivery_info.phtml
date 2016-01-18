@@ -1,6 +1,10 @@
 <?php
+if($this->getOrder()->getShippingArrivalDate()){
 $arrivalDate = date('Y-m-d', strtotime($this->getOrder()->getShippingArrivalDate()));
+}
+else{
 $defaultDate = date('Y-m-d', strtotime('now + 2 days'));
+}
 $comments = $this->getOrder()->getShippingArrivalComments();
 echo '<p>Przewidywany termin dostawy: ';
 if ($arrivalDate) {
