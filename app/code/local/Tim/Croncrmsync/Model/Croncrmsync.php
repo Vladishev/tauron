@@ -10,12 +10,11 @@ class Tim_Croncrmsync_Model_Croncrmsync extends Mage_Core_Model_Abstract
 
     public static function crmsynchronization()
     {
-
         $collection = Mage::getModel('sales/order')->getCollection()->addFieldToFilter('status', array('neq' => Mage_Sales_Model_Order::STATE_CANCELED))// ->addFieldToFilter('status',array('neq' => 'complete'))
             ->load();
         $whereclouse = '';
         foreach ($collection as $checkstatus) {
-            if ($chance_id = $checkstatus->getData('chance_id')) {
+            if ($chance_id = $checkstatus->getData('tim_chance_id')) {
                 $chance_id = "'" . $chance_id . "/01'";
                 $whereclouse = $whereclouse . $chance_id;
             }
