@@ -40,7 +40,7 @@ class Tim_Croncrmsync_Model_Croncrmsync extends Mage_Core_Model_Abstract
         $database = Mage::getStoreConfig('tim_sql_view/tim_sql_view_group/db_name');
         $dbhandle = mssql_connect($server . ':' . $db['port'], $db['user'], $db['pass']);
         $selected = mssql_select_db($database, $dbhandle);
-
+echo $server . ':' . $db['port']. $db['user']. $db['pass'];die();
         // in case of ODBC select  $connection = odbc_connect("Driver={SQL Server};Server=$server;Port=1433;Database=$database;", $db['user'], $db['pass']);
         if (!$selected) {
             die('Sadly Something went wrong while connecting to MSSQL');
