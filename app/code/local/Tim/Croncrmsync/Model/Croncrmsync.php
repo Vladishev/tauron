@@ -38,13 +38,15 @@ class Tim_Croncrmsync_Model_Croncrmsync extends Mage_Core_Model_Abstract
         $db['pass'] = Mage::getStoreConfig('tim_sql_view/tim_sql_view_group/password');
         $database = Mage::getStoreConfig('tim_sql_view/tim_sql_view_group/db_name');
         $dbhandle = mssql_connect($server . ':' . $db['port'], $db['user'], $db['pass']);
+        
         $selected = mssql_select_db($database, $dbhandle);
-
+        
         // in case of ODBC select  $connection = odbc_connect("Driver={SQL Server};Server=$server;Port=1433;Database=$database;", $db['user'], $db['pass']);
         if (!$selected) {
             die('Sadly Something went wrong while connecting to MSSQL');
         } else {
             $sqltest = "SELECT [Nr_oferty],[Nr_faktury],[Kod_statusu_zlecenia],[Tracking_link],[Termin_platnosci],[Data_wystawienia],[Wartosc_netto],[Wartosc_brutto],[Zaplacona],[Link_FV] FROM [BK_Sales_Order] WHERE Nr_oferty IN ($CrmOrderNumbers)";
+            die($sqltest);
             $result = mssql_query($sqltest);
 
             //   $rs=odbc_exec($connection,$sqltest);  in case of ODBC select
