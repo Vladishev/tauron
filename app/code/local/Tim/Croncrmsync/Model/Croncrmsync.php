@@ -97,8 +97,8 @@ class Tim_Croncrmsync_Model_Croncrmsync extends Mage_Core_Model_Abstract
         if (self::CheckVisibility($orderid)) {
             if ($Pname = self::PurifyFileName($row['Link_FV'])) {
                 if (self::InvoiceFileEntity($Pname)) {
-                    $query = "insert into tim_fv (order_id,order_number,customer_id,fv_number,paid,nett_price,gross_price,payment_date,date_of_issue,link_fv)" . " values (:orderid, :ordernum, :cid,:factornum, :paid, :nettprice, :grossprice, :paymentdate, :dateofissue, :linkfv)";
-                    $binds = array('orderid' => $orderid, 'ordernum' => $row['Nr_oferty'], 'cid' => $order->getCustomerId(), 'factornum' => $row['Nr_faktury'], 'paid' => $row['Zaplacona'], 'nettprice' => $row['Wartosc_netto'], 'grossprice' => $row['Wartosc_brutto'], 'paymentdate' => $paymentdate, 'dateofissue' => $dateofissue, 'linkfv' => $row['Link_FV'],);
+                    $query = "insert into tim_fv (order_id,fv_number,customer_id,order_number,paid,nett_price,gross_price,payment_date,date_of_issue,link_fv)" . " values (:orderid, :factornum, :cid,:ordernum, :paid, :nettprice, :grossprice, :paymentdate, :dateofissue, :linkfv)";
+                    $binds = array('orderid' => $orderid, 'factornum' => $row['Nr_faktury'], 'cid' => $order->getCustomerId(), 'ordernum' => $row['Nr_oferty'], 'paid' => $row['Zaplacona'], 'nettprice' => $row['Wartosc_netto'], 'grossprice' => $row['Wartosc_brutto'], 'paymentdate' => $paymentdate, 'dateofissue' => $dateofissue, 'linkfv' => $row['Link_FV'],);
                     $write->query($query, $binds);
                     //success email with invoices 
                     self::InvoiceEmailing(self::InvoiceFileEntity($Pname), $order, 'Powiadomienie o wystawieniu faktury');
