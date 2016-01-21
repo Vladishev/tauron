@@ -120,7 +120,7 @@ class Tim_Croncrmsync_Model_Croncrmsync extends Mage_Core_Model_Abstract
             $row_modified = substr(trim($row['Nr_oferty']), 0, 12);
             foreach ($newcollection as $checkstatus) {
                 $statuschecker = $checkstatus->getStatus();
-                if ($checkstatus->getData('chance_id') == $row_modified) {
+                if ($checkstatus->getData('tim_chance_id') == $row_modified) {
 //                    self::InvoiceInfoUpdate($row, $checkstatus, $checkstatus->getStoreId());
                     switch ($row['Kod_statusu_zlecenia']) {
                         /*case 001:
