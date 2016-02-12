@@ -21,6 +21,12 @@
                             <action>adminhtml/complaintReport</action>
                         </tim_complaint>
                     </children>
+                    <children>
+                        <tim_zip_codes_report translate="title">
+                            <title>ZIP codes</title>
+                            <action>adminhtml/postcodes</action>
+                        </tim_zip_codes_report>
+                    </children>
                 </tim>
             </children>
         </report>
@@ -38,6 +44,10 @@
                                         <title>Complaints</title>
                                         <sort_order>0</sort_order>
                                     </tim_complaint>
+                                    <tim_zip_codes translate="title">
+                                        <title>ZIP codes</title>
+                                        <sort_order>5</sort_order>
+                                    </tim_zip_codes>
                                 </children>
                             </tim>
                         </children>
