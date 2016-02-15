@@ -132,8 +132,8 @@ class Tim_Tauron_Helper_Data extends Mage_Core_Helper_Abstract
                 Mage::getModel('crm/actions')->saveOrder($order);
             }
             $order->setTimSentToCrm(true);
+            $order->save();
         }
-        $order->save();
     }
 
     /**

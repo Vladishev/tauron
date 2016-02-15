@@ -1,6 +1,8 @@
 <?php
-if ($this->getOrder()->getTimChanceId()) {
-    echo $this->getOrder()->getTimChanceId();
+$order = Mage::getModel('sales/order')->load($this->getOrder()->getId());
+$crmId = $order->getTimChanceId();
+if ($crmId) {
+    echo $crmId;
 } else {
     echo $this->getOrder()->getIncrementId();
 }
