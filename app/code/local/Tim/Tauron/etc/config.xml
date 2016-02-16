@@ -185,6 +185,17 @@
             </adminhtml>
         </routers>
     </admin>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Tim_Tauron>
+                    <files>
+                        <default>Tim_Tauron.csv</default>
+                    </files>
+                </Tim_Tauron>
+            </modules>
+        </translate>
+    </adminhtml>
     <frontend>
         <routers>
             <tim_tauron>
@@ -209,5 +220,14 @@
                 </args>
             </customer>
         </routers>
+        <translate>
+            <modules>
+                <Tim_Tauron>
+                    <files>
+                        <default>Tim_Tauron.csv</default>
+                    </files>
+                </Tim_Tauron>
+            </modules>
+        </translate>
     </frontend>
 </config>
