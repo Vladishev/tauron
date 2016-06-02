@@ -71,7 +71,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
             ->getFirstItem()
             ->getEntityId();
 
-        if ($md5 == $checkMd5 and empty($isOrderExist)) {
+//        if ($md5 == $checkMd5 and empty($isOrderExist)) {
             $productId = Mage::getModel("catalog/product")->getIdBySku($requestData['sku']);
             $qty = '1';
             if (!$productId) {
@@ -97,8 +97,8 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
             Mage::getSingleton('checkout/session')->setData('tauron_cart', $requestData);
             Mage::getSingleton('core/session')->setData('open_access', true);
             $this->_redirect('checkout/cart');
-        } else {
-            $this->_redirect(Mage::getStoreConfig('web/default/front') . '?popup=1');
-        }
+//        } else {
+//            $this->_redirect(Mage::getStoreConfig('web/default/front') . '?popup=1');
+//        }
     }
 }
