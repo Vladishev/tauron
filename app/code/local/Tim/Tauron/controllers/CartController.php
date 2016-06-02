@@ -72,7 +72,12 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
             ->getEntityId();
 
         if ($md5 == $checkMd5 and empty($isOrderExist)) {
-            $productId = Mage::getModel("catalog/product")->getIdBySku($requestData['sku']);
+            $productCollection = Mage::getModel('catalog/product')
+                ->getCollection()
+                ->addFieldToFilter('tim_ean', $requestData['sku'])
+                ->getFirstItem();
+            $requestData['sku'] = $productCollection->getSku();
+            $productId = $productCollection->getId();
             $qty = '1';
             if (!$productId) {
                 echo 'This product does not exist. Please, check sku!';
