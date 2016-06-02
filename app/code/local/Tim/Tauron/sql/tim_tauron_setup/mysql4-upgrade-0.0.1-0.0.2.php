@@ -14,13 +14,11 @@ $installer->startSetup();
 Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
 
 $staticBlock = array(
-    array(
-        'title' => 'Popup',
-        'identifier' => 'tauron_popup',
+    'title' => 'Popup',
+    'identifier' => 'tauron_popup',
 //        'content' => '',
-        'is_active' => 1,
-        'stores' => array(0),
-    )
+    'is_active' => 1,
+    'stores' => array(0),
 );
 
 Mage::getModel('cms/block')->setData($staticBlock)->save();
