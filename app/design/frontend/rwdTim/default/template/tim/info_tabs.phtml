@@ -1,0 +1,33 @@
+<?php
+/**
+ * Tim
+ *
+ * @category   Tim
+ * @package    Tim_Tauron
+ * @copyright  Copyright (c) 2016 Tim (http://tim.pl)
+ * @author     Vladislav Verbitskiy <vladomsu@gmail.com>
+ */
+
+/**
+ * @see Tim_Tauron_Block_Tabs
+ */
+?>
+<?php
+$titles = $this->getTabsTitles();
+$i = 1;
+?>
+<div class="product-collateral toggle-content tabs">
+    <?php if ($titles):?>
+        <dl id="collateral-tabs" class="collateral-tabs">
+            <?php foreach ($titles as $title => $blockId):?>
+                <!--check if is active block-->
+                <?php if (Mage::getModel('cms/block')->load($blockId)->getIsActive()): ?>
+                    <dt class="tab"><span><?php echo $this->escapeHtml($title) ?></span></dt>
+                    <dd class="tab-container">
+                        <div class="tab-content"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('tim_tabs' . $i)->toHtml(); ?></div>
+                    </dd>
+                <?php $i++; endif; ?>
+            <?php endforeach;?>
+        </dl>
+    <?php endif; ?>
+</div>
