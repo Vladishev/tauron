@@ -5027,7 +5027,7 @@ float: right;
     border-bottom: 2px solid #0b5ed8;
     width: 100%;
     display: block;
-
+text-allign:right;
 }
 .product-view .product-shop .extra-info {
   float: left;
