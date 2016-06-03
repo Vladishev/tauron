@@ -2047,7 +2047,7 @@ span.weee {
  * Standard Formatted Text Block
  */
 .std p {
-  margin: 0 0 0.5em;
+  margin: 0 0 0.8em;
 }
 
 .std ol {
@@ -3250,11 +3250,11 @@ height:181px;
  * Logo
  * ============================================ */
 .logo {
-  display: block;
-  float: left;
-  width:145px;
-  width: 145px;
-  text-align: center;
+    display: block;
+    float: left;
+    width: 120px;
+    height: 120px;
+    text-align: center;
 }
 .logo img {
   max-width: 100%;
@@ -3374,7 +3374,11 @@ a.skip-link {
 .skip-link .label {
   display: none;
 }
-
+@media only screen and (max-width: 770px) {
+  .skip-link .label {
+    display:none !important;
+  }
+}
 @media only screen and (min-width: 500px) {
   .skip-link .label {
     display: inline;
@@ -3432,7 +3436,9 @@ a.skip-link {
  * Nav - Skip Link
  * ============================================ */
 .skip-nav {
-  width: 40%;
+    width: 20%;
+    float: right;
+    padding: 5px;
 }
 .skip-nav:not(.skip-active):hover {
   text-decoration: none;
@@ -3455,8 +3461,6 @@ a.skip-link {
   .skip-nav {
     width: 20%;
       float:right;
-      background-color: #3c7ee0;
-      color:#fff;
       padding:5px;
   }
 }
@@ -3498,9 +3502,9 @@ a.skip-link {
   position: relative;
   display: block;
 color: #555555;
-font-size: 20px;
+font-size: 18px;
 line-height: 26px;
- padding: 32px 2px 5px 2px;
+ padding: 25px 2px 5px 2px;
   font-family: Verdana, arial, sans-serif;
     }
 .nav-primary li {
@@ -4991,9 +4995,19 @@ box-shadow: 0.5px 0.866px 2px 0px rgba(0,0,0,0.5);
 }
 .product-view .product-shop .product-name .h1,
 .product-view .product-img-box .product-name h1 {
-  color: #e2007a;
-  margin-bottom: 10px;
-  border: 0;
+    color: #e2007a;
+    /* margin-bottom: 10px; */
+    /* border: 0; */
+    float: left;
+    margin-bottom: 10px;
+    text-transform: none;
+    background-color: none;
+    color: #0b5ed8;
+    padding: 0px 0px 10px 0px;
+    border-bottom: 2px solid #0b5ed8;
+    width: 100%;
+    text-align: center;
+    display: block;
 }
 .product-view .product-shop {
   width: 50%;
@@ -5001,15 +5015,18 @@ box-shadow: 0.5px 0.866px 2px 0px rgba(0,0,0,0.5);
 }
 .product-view .product-shop .product-name {
   display: none;
-  float: left;
+  float: right;
 }
 .product-view .product-shop .product-name .h1 {
-  float: left;
-  margin-bottom: 5px;
+float: right;
+    margin-bottom: 10px;
     text-transform: none;
-    background-color:#0b5ed8;
-    color:#fff;
-       padding: 5px 15px 5px 15px;
+    background-color: none;
+    color: #0b5ed8;
+    padding: 0px 0px 10px 0px;
+    border-bottom: 2px solid #0b5ed8;
+    width: 100%;
+    display: block;
 
 }
 .product-view .product-shop .extra-info {
@@ -5231,6 +5248,7 @@ box-shadow: 0.5px 0.866px 2px 0px rgba(0,0,0,0.5);
 .product-view .add-to-cart {
   padding-bottom: 3px;
   margin-bottom: 10px;
+      float: right;
   
 }
 .product-view .add-to-cart .qty-wrapper,
@@ -5258,7 +5276,7 @@ box-shadow: 0.5px 0.866px 2px 0px rgba(0,0,0,0.5);
 }
 .product-view .add-to-cart-buttons {
   float: left;
-  margin-right: 10px;
+/*  margin-right: 10px; */
   max-width: 100%;
 }
 .product-view .add-to-cart-buttons .paypal-logo {
@@ -9333,7 +9351,7 @@ div.paypal-logo span > img {
     }
 
     .skip-cart span.icon {
-        display:none;
+     /*   display:none; */
     }
     
 
@@ -10783,10 +10801,10 @@ width:100%;
 }
 
 .logosecond {
-    margin-left:210px;
-    width:187px;
-    height:34px;
-    margin-top:48px;
+    margin-left: 160px;
+    width: 187px;
+    height: 34px;
+    margin-top: 42px;
 }
 
 .level0.nav-1.active, .level0.nav-2.active, .level0.nav-3.active, .level0.nav-4.active, .level0.nav-5.active {
@@ -11249,7 +11267,7 @@ ul.pabout-listli li {
     color:#fff;
 }
 
-@media only screen and (max-width: 890px) {
+@media only screen and (max-width: 925px) {
     .nav-primary li.level0 > a {
     text-transform: none;
     font-size: 12px;
@@ -11282,12 +11300,13 @@ div.main-container.col2-right-layout {
  ol.nav-primary {
     float: right;
     padding-right: 20px;
-        background-color: #3c7ee0;     
-         padding-left: 20px;
-height: 180px;
-z-index: 9999999;
-position: absolute;
-right: 0;
+    background-color: #3c7ee0;
+    padding-left: 20px;
+    height: 220px;
+    z-index: 9999999;
+    position: absolute;
+    right: 1px;
+    top: 77px;
 }   
 .nav-primary li.level0 > a {
     text-transform: none;
@@ -11296,8 +11315,12 @@ right: 0;
     
 .tim-header-carttop .header-minicart {
     float: right;
-    width: 80px;
-    height: 28px;
+    width: 50px;
+    height: 30px;
+}
+
+.tim-header-carttop .header-minicart:hover {
+background-color:#3c7ee0;
 }
     
 }
@@ -11337,6 +11360,7 @@ line-height: 110%;
 margin-bottom: 10px;
 display: inline-block;
 color:#2b2b2b;
+    min-height: 60px;
 }
 
 .product-inner-hover {
@@ -11454,3 +11478,53 @@ border-color: transparent transparent transparent #ffffff;
 a.tim_products_box_link_a:hover {
     background-color:#0b5ed8;
 }
+
+.product-collateral {
+	display:none;
+}
+
+
+.karta-opis-glowny {
+    display: block;
+background: rgba(0,0,0,0.05);
+    padding: 15px 20px;
+    text-align: justify;
+    line-height: 130%;	
+    margin-bottom: 0px !important;		
+	    width: 50%;
+    float: right;
+	display:block;
+}
+
+.karta-opis-pozostaly {
+	    margin-bottom: 0px !important;	
+		    text-align: justify;
+    line-height: 140%;	
+	    padding-top:20px;
+		    width: 50%;
+    float: right;
+	display:block;
+}
+
+.karta-opis-wazne {
+font-size:16px;
+font-weight:bold;
+margin-bottom:5px;
+color:#0b5ed8;
+display:inline-block;
+}
+
+
+@media only screen and (max-width: 770px) {
+.karta-opis-glowny, .karta-opis-pozostaly {
+	width:100%;
+}
+.skip-nav {
+	background-color:#3c7ee0;
+}
+#header > div > div:nth-child(2) > a:nth-child(1) {
+    padding-top: 5px;
+}
+}
+
+
