@@ -28,6 +28,7 @@
             <checkout>
                 <rewrite>
                     <onepage>Tim_Tauron_Block_Checkout_Onepage</onepage>
+                    <onepage_shipping_method_available>Tim_Tauron_Block_Onepage_Shipping_Method_Available</onepage_shipping_method_available>
                 </rewrite>
             </checkout>
         </blocks>
