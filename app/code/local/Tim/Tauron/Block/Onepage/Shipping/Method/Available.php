@@ -16,8 +16,8 @@
  */
 class Tim_Tauron_Block_Onepage_Shipping_Method_Available extends Mage_Checkout_Block_Onepage_Shipping_Method_Available
 {
-    const CART_GRAND_TOTAL = 100;
-    /**
+    const CART_GRAND_TOTAL = 99;
+    /*
      * Rewrite method for choosing only one shipping method
      * @return array
      */
