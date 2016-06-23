@@ -11,6 +11,26 @@
 class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
 {
     /**
+     * Attribute set name
+     */
+    const LED_ATTR_SET = 'LED';
+
+    /**
+     * Quantity of product
+     */
+    const QTY = 1;
+
+    /**
+     * Parameters for popup 1
+     */
+    const POPUP_1 = '/popup/1';
+
+    /**
+     * Parameters for popup 2
+     */
+    const POPUP_2 = '/popup/2';
+
+    /**
      * Uncomment and put your data for test.
      * After this put http://tauron.local/tim_tauron/cart/ to url field.
      */
@@ -78,7 +98,6 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
                 ->getFirstItem();
             $requestData['sku'] = $productCollection->getSku();
             $productId = $productCollection->getId();
-            $qty = '1';
             if (!$productId) {
                 echo 'This product does not exist. Please, check sku!';
             }
@@ -91,7 +110,7 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
 
             $cart = Mage::getModel('checkout/cart');
             $cart->init();
-            $params = array('product' => $productId, 'qty' => $qty,);
+            $params = array('product' => $productId, 'qty' => self::QTY);
 
             $request = new Varien_Object();
             $request->setData($params);
@@ -103,7 +122,17 @@ class Tim_Tauron_CartController extends Mage_Core_Controller_Front_Action
             Mage::getSingleton('core/session')->setData('open_access', true);
             $this->_redirect('checkout/cart');
         } else {
-            $this->_redirect(Mage::getStoreConfig('web/default/front') . '?popup=1');
+            $attrSetId = (int) Mage::getModel('catalog/product')
+                ->getCollection()
+                ->addFieldToFilter('tim_ean', $requestData['sku'])
+                ->getFirstItem()
+                ->getAttributeSetId();
+            $attributeSetName = Mage::getModel('eav/entity_attribute_set')->load($attrSetId)->getAttributeSetName();
+            if ($attributeSetName === self::LED_ATTR_SET) {
+                $this->_redirect(Mage::getStoreConfig('web/default/front') . self::POPUP_2);
+            } else {
+                $this->_redirect(Mage::getStoreConfig('web/default/front') . self::POPUP_1);
+            }
         }
     }
 }

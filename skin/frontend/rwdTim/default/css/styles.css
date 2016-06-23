@@ -11205,7 +11205,7 @@ ol.nav-primary {
 }
 
 
-#tauron-popup {
+#tauron-popup, #led_tauron-popup {
     display:none;
 }
 

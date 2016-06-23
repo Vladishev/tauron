@@ -13,10 +13,11 @@ class Tim_Tauron_Model_Observer
     public function closeAccess()
     {
         if (Mage::helper('tim_tauron')->checkGuest()) {
-            if (Mage::helper('core/http')->getHttpReferer()) {
-                $url = Mage::helper('core/http')->getHttpReferer() . '?popup=1';
+            if ($url = Mage::helper('core/http')->getHttpReferer()) {
+                $url = str_replace(array('?popup=1', '?popup=2'), '', $url) . '?popup=1';
             } else {
-                $url = Mage::getUrl() . '?popup=1';
+                $url = str_replace(array('?popup=1', '?popup=2'), '', Mage::getUrl());
+                $url = $url . '?popup=1';
             }
             Mage::app()->getFrontController()->getResponse()->setRedirect($url);
             Mage::app()->getResponse()->sendResponse();

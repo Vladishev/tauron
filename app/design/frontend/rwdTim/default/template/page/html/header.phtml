@@ -27,10 +27,17 @@
  * @var Mage_Page_Block_Html_Header $this
  */
 ?>
-<?php if ($this->getRequest()->getParam('popup')): ?>
+<?php $t = (int) $this->getRequest()->getParam('popup');
+if ($flag = (int) $this->getRequest()->getParam('popup')): ?>
     <script type="text/javascript">
 jQuery(document).ready(function() {
-        var myWindow = document.getElementById("tauron-popup");
+        var flag = <?php echo $flag ?>;
+        var myWindow;
+        if (flag === 2) {
+            myWindow = document.getElementById("led_tauron-popup");
+        } else {
+            myWindow = document.getElementById("tauron-popup");
+        }
         jQuery(myWindow).bPopup({
             autoClose: 5000
         });
@@ -93,4 +100,7 @@ jQuery(document).ready(function() {
 
 <div class="tauron_html_popup" id="tauron-popup">
 <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('tauron-popup')->toHtml(); ?>
+</div>
+<div class="tauron_html_popup" id="led_tauron-popup">
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('led_tauron-popup')->toHtml(); ?>
 </div>
